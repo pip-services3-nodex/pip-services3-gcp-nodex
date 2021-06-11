@@ -1,2 +1,2 @@
-# pip-services3-google-nodex
-Google cloud components for Pip.Services in Node.js / ES2017
+# pip-services3-gcp-nodex
+Google cloud platform components for Pip.Services in Node.js / ES2017
