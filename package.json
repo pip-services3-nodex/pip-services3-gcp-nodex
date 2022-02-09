@@ -1,0 +1,64 @@
+{
+    "name": "pip-services3-google-nodex",
+    "version": "1.0.0",
+    "author": "Conceptual Vision Consulting LLC",
+    "description": "Google Cloud specific components for Node.js / ES2017",
+    "contributors": [
+        {
+            "name": "Sergey Seroukhov",
+            "email": "seroukhov@gmail.com"
+        },
+        {
+            "name": "Danil Prisiazhnyi",
+            "email": "judas.priest999@gmail.com"
+        }
+    ],
+    "main": "./obj/src/index.js",
+    "typings": "./obj/src/index.d.ts",
+    "keywords": [
+        "pip.services",
+        "microservice",
+        "google",
+        "functions",
+        "library",
+        "async"
+    ],
+    "noAnalyze": true,
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:pip-services3-nodex/pip-services3-gcp-nodex.git"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "private": false,
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "test": "mocha -t 15000 -R spec -u tdd --recursive ./obj/test --exit",
+        "retest": "tsc && mocha -t 10000 -R spec -u tdd --recursive ./obj/test --exit",
+        "start": "npx functions-framework --target=handler --signature-type=http --source=bin"
+    },
+    "dependencies": {
+        "express": "^4.17.2",
+        "pip-services3-commons-nodex": "^1.0.1",
+        "pip-services3-components-nodex": "^1.2.2",
+        "pip-services3-container-nodex": "^1.0.2",
+        "pip-services3-rpc-nodex": "^1.0.2",
+        "restify-clients": "^2.6.4",
+        "restify-cors-middleware2": "2.1.2"
+    },
+    "devDependencies": {
+        "@google-cloud/functions-framework": "^2.1.1",
+        "@types/chai": "^4.0.0",
+        "@types/express": "^4.17.13",
+        "@types/mocha": "^8.0.0",
+        "@types/node": "*",
+        "chai": "^4.3.4",
+        "gaxios": "^4.3.2",
+        "mocha": "^8.3.2",
+        "restify": "^4.3.0",
+        "wait-port": "^0.2.9"
+    }
+}
