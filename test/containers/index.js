@@ -1,8 +1,8 @@
-const DummyCommandableGoogleFunction = require('../../obj/test/containers/DummyCommandableGoogleFunction').DummyCommandableGoogleFunction;
-const DummyGoogleFunction = require('../../obj/test/containers/DummyGoogleFunction').DummyGoogleFunction;
+const DummyCommandableCloudFunction = require('../../obj/test/containers/DummyCommandableCloudFunction').DummyCommandableCloudFunction;
+const DummyCloudFunction = require('../../obj/test/containers/DummyCloudFunction').DummyCloudFunction;
 const ConfigParams = require('../../node_modules/pip-services3-commons-nodex/obj/src/config/ConfigParams').ConfigParams;
 
-// CommandableGoogleFunction
+// CommandableCloudFunction
 let commandableFunction = null;
 
 exports.commandableHandler = async (req, res) => {
@@ -12,7 +12,7 @@ exports.commandableHandler = async (req, res) => {
     );
 
     if (commandableFunction == null) {
-        commandableFunction = new DummyCommandableGoogleFunction();
+        commandableFunction = new DummyCommandableCloudFunction();
         commandableFunction.configure(config);
         await commandableFunction.open(null);
     }
@@ -22,7 +22,7 @@ exports.commandableHandler = async (req, res) => {
 };
 
 
-// GoogleFunction
+// CloudFunction
 let gFunction = null;
 
 exports.handler = async (req, res) => {
@@ -32,7 +32,7 @@ exports.handler = async (req, res) => {
     );
     
     if (gFunction == null) {
-        gFunction = new DummyGoogleFunction();
+        gFunction = new DummyCloudFunction();
         gFunction.configure(config);
         await gFunction.open(null);
     }

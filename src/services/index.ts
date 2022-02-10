@@ -1,6 +1,6 @@
 /** @module services */
 
-export { GoogleFunctionAction } from './GoogleFunctionAction'
-export { IGoogleFunctionService } from './IGoogleFunctionService';
-export { GoogleFunctionService } from './GoogleFunctionService';
-export { CommandableGoogleFunctionService } from './CommandableGoogleFunctionService';
+export { CloudFunctionAction } from './CloudFunctionAction'
+export { ICloudFunctionService } from './ICloudFunctionService';
+export { CloudFunctionService } from './CloudFunctionService';
+export { CommandableCloudFunctionService } from './CommandableCloudFunctionService';

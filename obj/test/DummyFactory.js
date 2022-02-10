@@ -4,19 +4,19 @@ exports.DummyFactory = void 0;
 const pip_services3_components_nodex_1 = require("pip-services3-components-nodex");
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 const DummyController_1 = require("./DummyController");
-const DummyGoogleFunctionService_1 = require("./services/DummyGoogleFunctionService");
-const DummyCommandableGoogleFunctionService_1 = require("./services/DummyCommandableGoogleFunctionService");
+const DummyCloudFunctionService_1 = require("./services/DummyCloudFunctionService");
+const DummyCommandableCloudFunctionService_1 = require("./services/DummyCommandableCloudFunctionService");
 class DummyFactory extends pip_services3_components_nodex_1.Factory {
     constructor() {
         super();
         this.registerAsType(DummyFactory.ControllerDescriptor, DummyController_1.DummyController);
-        this.registerAsType(DummyFactory.GoogleFunctionServiceDescriptor, DummyGoogleFunctionService_1.DummyGoogleFunctionService);
-        this.registerAsType(DummyFactory.CmdGoogleFunctionServiceDescriptor, DummyCommandableGoogleFunctionService_1.DummyCommandableGoogleFunctionService);
+        this.registerAsType(DummyFactory.CloudFunctionServiceDescriptor, DummyCloudFunctionService_1.DummyCloudFunctionService);
+        this.registerAsType(DummyFactory.CmdCloudFunctionServiceDescriptor, DummyCommandableCloudFunctionService_1.DummyCommandableCloudFunctionService);
     }
 }
 exports.DummyFactory = DummyFactory;
 DummyFactory.Descriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "factory", "default", "default", "1.0");
 DummyFactory.ControllerDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "controller", "default", "*", "1.0");
-DummyFactory.GoogleFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "google-function", "*", "1.0");
-DummyFactory.CmdGoogleFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "commandable-google-function", "*", "1.0");
+DummyFactory.CloudFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "gcp-function", "*", "1.0");
+DummyFactory.CmdCloudFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "commandable-gcp-function", "*", "1.0");
 //# sourceMappingURL=DummyFactory.js.map

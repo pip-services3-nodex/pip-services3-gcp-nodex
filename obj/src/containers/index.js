@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CommandableGoogleFunction = exports.GoogleFunction = void 0;
+exports.CommandableCloudFunction = exports.CloudFunction = void 0;
 /** @module containers */
-var GoogleFunction_1 = require("./GoogleFunction");
-Object.defineProperty(exports, "GoogleFunction", { enumerable: true, get: function () { return GoogleFunction_1.GoogleFunction; } });
-var CommandableGoogleFunction_1 = require("./CommandableGoogleFunction");
-Object.defineProperty(exports, "CommandableGoogleFunction", { enumerable: true, get: function () { return CommandableGoogleFunction_1.CommandableGoogleFunction; } });
+var CloudFunction_1 = require("./CloudFunction");
+Object.defineProperty(exports, "CloudFunction", { enumerable: true, get: function () { return CloudFunction_1.CloudFunction; } });
+var CommandableCloudFunction_1 = require("./CommandableCloudFunction");
+Object.defineProperty(exports, "CommandableCloudFunction", { enumerable: true, get: function () { return CommandableCloudFunction_1.CommandableCloudFunction; } });
 //# sourceMappingURL=index.js.map

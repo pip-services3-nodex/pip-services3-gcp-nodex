@@ -1,3 +1,3 @@
 /** @module connect */
-export { GoogleConnectionParams } from './GoogleConnectionParams';
-export { GoogleConnectionResolver } from './GoogleConnectionResolver';
+export { GcpConnectionParams } from './GcpConnectionParams';
+export { GcpConnectionResolver } from './GcpConnectionResolver';

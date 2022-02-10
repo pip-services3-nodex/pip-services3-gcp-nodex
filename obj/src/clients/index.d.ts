@@ -1,3 +1,3 @@
 /** @module clients */
-export { GoogleFunctionClient } from './GoogleFunctionClient';
-export { CommandableGoogleFunctionClient } from './CommandableGoogleFunctionClient';
+export { CloudFunctionClient } from './CloudFunctionClient';
+export { CommandableCloudFunctionClient } from './CommandableCloudFunctionClient';

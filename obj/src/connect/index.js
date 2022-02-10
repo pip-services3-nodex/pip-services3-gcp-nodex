@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GoogleConnectionResolver = exports.GoogleConnectionParams = void 0;
+exports.GcpConnectionResolver = exports.GcpConnectionParams = void 0;
 /** @module connect */
-var GoogleConnectionParams_1 = require("./GoogleConnectionParams");
-Object.defineProperty(exports, "GoogleConnectionParams", { enumerable: true, get: function () { return GoogleConnectionParams_1.GoogleConnectionParams; } });
-var GoogleConnectionResolver_1 = require("./GoogleConnectionResolver");
-Object.defineProperty(exports, "GoogleConnectionResolver", { enumerable: true, get: function () { return GoogleConnectionResolver_1.GoogleConnectionResolver; } });
+var GcpConnectionParams_1 = require("./GcpConnectionParams");
+Object.defineProperty(exports, "GcpConnectionParams", { enumerable: true, get: function () { return GcpConnectionParams_1.GcpConnectionParams; } });
+var GcpConnectionResolver_1 = require("./GcpConnectionResolver");
+Object.defineProperty(exports, "GcpConnectionResolver", { enumerable: true, get: function () { return GcpConnectionResolver_1.GcpConnectionResolver; } });
 //# sourceMappingURL=index.js.map
