@@ -24,8 +24,8 @@ suite('GcpConnectionParams', ()=> {
         const config2 = ConfigParams.fromTuples(
             'connection.protocol', 'http',
             'connection.region', 'east',
-            'connection.function_name', 'myfunction',
-            'credential.project_id', 'my_test_project',
+            'connection.function', 'myfunction',
+            'connection.project_id', 'my_test_project',
             'credential.auth_token', '1234',
         );
         let resolver = new GcpConnectionResolver();

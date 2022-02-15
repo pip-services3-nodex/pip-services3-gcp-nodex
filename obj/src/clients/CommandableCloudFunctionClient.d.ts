@@ -9,13 +9,16 @@ import { CloudFunctionClient } from './CloudFunctionClient';
  * ### Configuration parameters ###
  *
  * - connections:
- *     - uri:           full connection uri with specific app and function name
- *     - protocol:      connection protocol
- *     - project_id:    is your Google Cloud Platform project ID
- *     - region:        is the region where your function is deployed
- *     - function_name: is the name of the HTTP function you deployed
+ *      - uri:           full connection uri with specific app and function name
+ *      - protocol:      connection protocol
+ *      - project_id:    is your Google Cloud Platform project ID
+ *      - region:        is the region where your function is deployed
+ *      - function:      is the name of the HTTP function you deployed
+ *      - org_id:        organization name
+ *
  * - credentials:
- *     - auth_token:    Google-generated ID token, if use custom authorization provide empty string
+ *     - account: the service account name
+ *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)
  *
  * ### References ###
  *
@@ -42,8 +45,8 @@ import { CloudFunctionClient } from './CloudFunctionClient';
  *          'connection.uri", "http://region-id.cloudfunctions.net/myfunction',
  *          'connection.protocol', 'http',
             'connection.region', 'region',
-            'connection.function_name', 'myfunction',
-            'credential.project_id', 'id',
+            'connection.function', 'myfunction',
+            'connection.project_id', 'id',
             'credential.auth_token', 'XXX',
  *     ));
  *

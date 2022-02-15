@@ -6,8 +6,8 @@ import { CredentialParams } from 'pip-services3-components-nodex';
 import { ConnectionParams } from 'pip-services3-components-nodex';
 
 /**
- * Contains connection parameters to authenticate against Google Functions
- * and connect to specific Google Function.
+ * Contains connection parameters to authenticate against Google
+ * and connect to specific Google Cloud Platform.
  * 
  * The class is able to compose and parse Google Function connection parameters.
  * 
@@ -18,10 +18,12 @@ import { ConnectionParams } from 'pip-services3-components-nodex';
  *      - protocol:      connection protocol
  *      - project_id:    is your Google Cloud Platform project ID
  *      - region:        is the region where your function is deployed
- *      - function_name: is the name of the HTTP function you deployed
- *      
- * - credentials:    
- *     - auth_token:    Google-generated ID token or null if using custom auth
+ *      - function:      is the name of the HTTP function you deployed
+ *      - org_id:        organization name
+ * 
+ * - credentials:   
+ *     - account: the service account name 
+ *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)
  *
  * In addition to standard parameters [[https://pip-services3-nodex.github.io/pip-services3-components-nodex/classes/auth.credentialparams.html CredentialParams]] may contain any number of custom parameters
  * 
@@ -34,8 +36,8 @@ import { ConnectionParams } from 'pip-services3-components-nodex';
  *         'connection.uri', 'http://east-my_test_project.cloudfunctions.net/myfunction',
  *         'connection.protocol', 'http',
  *         'connection.region', 'east',
- *         'connection.function_name', 'myfunction',
- *         'credential.project_id', 'my_test_project',
+ *         'connection.function', 'myfunction',
+ *         'connection.project_id', 'my_test_project',
  *         'credential.auth_token', '1234',
  *     );
  * 
@@ -99,7 +101,7 @@ export class GcpConnectionParams extends ConfigParams {
      * @returns {string} the Google function name.
      */
     public getFunctionName(): string {
-        return super.getAsNullableString("function_name");
+        return super.getAsNullableString("function");
     }
 
     /**
@@ -108,7 +110,7 @@ export class GcpConnectionParams extends ConfigParams {
      * @param value a new Google function name.
      */
     public setFunctionName(value: string) {
-        super.put("function_name", value);
+        super.put("function", value);
     }
 
     /**
@@ -148,10 +150,10 @@ export class GcpConnectionParams extends ConfigParams {
     }
 
     /**
-   * Gets an ID token with the request to authenticate themselves
-   *
-   * @returns {string} the ID token.
-   */
+     * Gets an ID token with the request to authenticate themselves
+     *
+     * @returns {string} the ID token.
+     */
     public getAuthToken(): string {
         return super.getAsNullableString("auth_token");
     }
@@ -163,6 +165,42 @@ export class GcpConnectionParams extends ConfigParams {
      */
     public setAuthToken(value: string) {
         super.put("auth_token", value);
+    }
+
+    /**
+     * Gets the service account name 
+     *
+     * @returns {string} the account name.
+     */
+    public getAccount(): string {
+        return super.getAsNullableString("account");
+    }
+
+    /**
+     * Sets the service account name 
+     *
+     * @param value a new account name.
+     */
+    public setAccount(value: string) {
+        super.put("account", value);
+    }
+
+    /**
+     * Gets organization name 
+     *
+     * @returns {string} the organization name.
+     */
+    public getOrgId(): string {
+        return super.getAsNullableString("org_id");
+    }
+
+    /**
+     * Sets organization name
+     *
+     * @param value a new organization name.
+     */
+    public setOrgId(value: string) {
+        super.put("org_id", value);
     }
 
     /**
@@ -193,7 +231,7 @@ export class GcpConnectionParams extends ConfigParams {
             throw new ConfigException(
                 correlationId,
                 "NO_CONNECTION_URI",
-                "No uri, app_name and function_name is configured in Auzre function uri"
+                "No uri, project_id, region and function is configured in Google function uri"
             );
         }
 

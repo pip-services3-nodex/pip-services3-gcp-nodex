@@ -19,8 +19,8 @@ suite('DummyCloudFunctionClient', ()=> {
         'connection.uri', uri,
         'connection.protocol', protocol,
         'connection.region', region,
-        'connection.function_name', functionName,
-        'credential.project_id', projectId,
+        'connection.function', functionName,
+        'connection.project_id', projectId,
     );
 
     let client: DummyCloudFunctionClient;

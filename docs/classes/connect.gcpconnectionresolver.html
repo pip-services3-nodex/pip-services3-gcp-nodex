@@ -81,12 +81,14 @@
 								<li>protocol:      connection protocol</li>
 								<li>project_id:    is your Google Cloud Platform project ID</li>
 								<li>region:        is the region where your function is deployed</li>
-								<li>function_name: is the name of the HTTP function you deployed</li>
+								<li>function:      is the name of the HTTP function you deployed</li>
+								<li>org_id:        organization name</li>
 							</ul>
 						</li>
 						<li><p>credentials:</p>
 							<ul>
-								<li>auth_token:    Google-generated ID token or null if using custom auth</li>
+								<li>account: the service account name</li>
+								<li>auth_token:    Google-generated ID token or null if using custom auth (IAM)</li>
 							</ul>
 						</li>
 					</ul>
@@ -102,8 +104,8 @@
     <span class="hljs-string">'connection.uri'</span>, <span class="hljs-string">'http://east-my_test_project.cloudfunctions.net/myfunction'</span>,
     <span class="hljs-string">'connection.protocol'</span>, <span class="hljs-string">'http'</span>,
     <span class="hljs-string">'connection.region'</span>, <span class="hljs-string">'east'</span>,
-    <span class="hljs-string">'connection.function_name'</span>, <span class="hljs-string">'myfunction'</span>,
-    <span class="hljs-string">'credential.project_id'</span>, <span class="hljs-string">'my_test_project'</span>,
+    <span class="hljs-string">'connection.function'</span>, <span class="hljs-string">'myfunction'</span>,
+    <span class="hljs-string">'connection.project_id'</span>, <span class="hljs-string">'my_test_project'</span>,
     <span class="hljs-string">'credential.auth_token'</span>, <span class="hljs-string">'1234'</span>,
 );
 
@@ -161,7 +163,7 @@ connectionResolver.setReferences(references);
 					<div class="tsd-signature tsd-kind-icon">_connection<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConnectionResolver</span><span class="tsd-signature-symbol"> =&nbsp;new ConnectionResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in connect/GcpConnectionResolver.ts:55</li>
+							<li>Defined in connect/GcpConnectionResolver.ts:57</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -176,7 +178,7 @@ connectionResolver.setReferences(references);
 					<div class="tsd-signature tsd-kind-icon">_credential<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CredentialResolver</span><span class="tsd-signature-symbol"> =&nbsp;new CredentialResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in connect/GcpConnectionResolver.ts:59</li>
+							<li>Defined in connect/GcpConnectionResolver.ts:61</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -198,7 +200,7 @@ connectionResolver.setReferences(references);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionResolver.ts:66</li>
+									<li>Defined in connect/GcpConnectionResolver.ts:68</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -229,7 +231,7 @@ connectionResolver.setReferences(references);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionResolver.ts:91</li>
+									<li>Defined in connect/GcpConnectionResolver.ts:93</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -267,7 +269,7 @@ connectionResolver.setReferences(references);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionResolver.ts:76</li>
+									<li>Defined in connect/GcpConnectionResolver.ts:78</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

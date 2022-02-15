@@ -25,7 +25,7 @@ suite('GcpConnectionParams', () => {
     }));
     test('Compose Config', () => __awaiter(void 0, void 0, void 0, function* () {
         const config1 = pip_services3_commons_nodex_1.ConfigParams.fromTuples('connection.uri', 'http://east-my_test_project.cloudfunctions.net/myfunction', 'credential.auth_token', '1234');
-        const config2 = pip_services3_commons_nodex_1.ConfigParams.fromTuples('connection.protocol', 'http', 'connection.region', 'east', 'connection.function_name', 'myfunction', 'credential.project_id', 'my_test_project', 'credential.auth_token', '1234');
+        const config2 = pip_services3_commons_nodex_1.ConfigParams.fromTuples('connection.protocol', 'http', 'connection.region', 'east', 'connection.function', 'myfunction', 'connection.project_id', 'my_test_project', 'credential.auth_token', '1234');
         let resolver = new GcpConnectionResolver_1.GcpConnectionResolver();
         resolver.configure(config1);
         let connection = yield resolver.resolve('');

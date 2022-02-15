@@ -1,8 +1,8 @@
 /** @module connect */
 import { ConfigParams } from 'pip-services3-commons-nodex';
 /**
- * Contains connection parameters to authenticate against Google Functions
- * and connect to specific Google Function.
+ * Contains connection parameters to authenticate against Google
+ * and connect to specific Google Cloud Platform.
  *
  * The class is able to compose and parse Google Function connection parameters.
  *
@@ -13,10 +13,12 @@ import { ConfigParams } from 'pip-services3-commons-nodex';
  *      - protocol:      connection protocol
  *      - project_id:    is your Google Cloud Platform project ID
  *      - region:        is the region where your function is deployed
- *      - function_name: is the name of the HTTP function you deployed
+ *      - function:      is the name of the HTTP function you deployed
+ *      - org_id:        organization name
  *
  * - credentials:
- *     - auth_token:    Google-generated ID token or null if using custom auth
+ *     - account: the service account name
+ *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)
  *
  * In addition to standard parameters [[https://pip-services3-nodex.github.io/pip-services3-components-nodex/classes/auth.credentialparams.html CredentialParams]] may contain any number of custom parameters
  *
@@ -29,8 +31,8 @@ import { ConfigParams } from 'pip-services3-commons-nodex';
  *         'connection.uri', 'http://east-my_test_project.cloudfunctions.net/myfunction',
  *         'connection.protocol', 'http',
  *         'connection.region', 'east',
- *         'connection.function_name', 'myfunction',
- *         'credential.project_id', 'my_test_project',
+ *         'connection.function', 'myfunction',
+ *         'connection.project_id', 'my_test_project',
  *         'credential.auth_token', '1234',
  *     );
  *
@@ -109,10 +111,10 @@ export declare class GcpConnectionParams extends ConfigParams {
      */
     setProjectId(value: string): void;
     /**
-   * Gets an ID token with the request to authenticate themselves
-   *
-   * @returns {string} the ID token.
-   */
+     * Gets an ID token with the request to authenticate themselves
+     *
+     * @returns {string} the ID token.
+     */
     getAuthToken(): string;
     /**
      * Sets an ID token with the request to authenticate themselves
@@ -120,6 +122,30 @@ export declare class GcpConnectionParams extends ConfigParams {
      * @param value a new ID token.
      */
     setAuthToken(value: string): void;
+    /**
+     * Gets the service account name
+     *
+     * @returns {string} the account name.
+     */
+    getAccount(): string;
+    /**
+     * Sets the service account name
+     *
+     * @param value a new account name.
+     */
+    setAccount(value: string): void;
+    /**
+     * Gets organization name
+     *
+     * @returns {string} the organization name.
+     */
+    getOrgId(): string;
+    /**
+     * Sets organization name
+     *
+     * @param value a new organization name.
+     */
+    setOrgId(value: string): void;
     /**
      * Creates a new GcpConnectionParams object filled with key-value pairs serialized as a string.
      *

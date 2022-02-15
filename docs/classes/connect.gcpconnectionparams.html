@@ -70,8 +70,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Contains connection parameters to authenticate against Google Functions
-						and connect to specific Google Function.</p>
+						<p>Contains connection parameters to authenticate against Google
+						and connect to specific Google Cloud Platform.</p>
 					</div>
 					<p>The class is able to compose and parse Google Function connection parameters.</p>
 					<h3 id="configuration-parameters">Configuration parameters</h3>
@@ -82,12 +82,14 @@
 								<li>protocol:      connection protocol</li>
 								<li>project_id:    is your Google Cloud Platform project ID</li>
 								<li>region:        is the region where your function is deployed</li>
-								<li>function_name: is the name of the HTTP function you deployed</li>
+								<li>function:      is the name of the HTTP function you deployed</li>
+								<li>org_id:        organization name</li>
 							</ul>
 						</li>
 						<li><p>credentials:</p>
 							<ul>
-								<li>auth_token:    Google-generated ID token or null if using custom auth</li>
+								<li>account: the service account name</li>
+								<li>auth_token:    Google-generated ID token or null if using custom auth (IAM)</li>
 							</ul>
 						</li>
 					</ul>
@@ -100,8 +102,8 @@
     <span class="hljs-string">'connection.uri'</span>, <span class="hljs-string">'http://east-my_test_project.cloudfunctions.net/myfunction'</span>,
     <span class="hljs-string">'connection.protocol'</span>, <span class="hljs-string">'http'</span>,
     <span class="hljs-string">'connection.region'</span>, <span class="hljs-string">'east'</span>,
-    <span class="hljs-string">'connection.function_name'</span>, <span class="hljs-string">'myfunction'</span>,
-    <span class="hljs-string">'credential.project_id'</span>, <span class="hljs-string">'my_test_project'</span>,
+    <span class="hljs-string">'connection.function'</span>, <span class="hljs-string">'myfunction'</span>,
+    <span class="hljs-string">'connection.project_id'</span>, <span class="hljs-string">'my_test_project'</span>,
     <span class="hljs-string">'credential.auth_token'</span>, <span class="hljs-string">'1234'</span>,
 );
 
@@ -146,15 +148,19 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getaccount" class="tsd-kind-icon">get<wbr>Account</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getauthtoken" class="tsd-kind-icon">get<wbr>Auth<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getfunctionname" class="tsd-kind-icon">get<wbr>Function<wbr>Name</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getfunctionuri" class="tsd-kind-icon">get<wbr>Function<wbr>Uri</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getorgid" class="tsd-kind-icon">get<wbr>Org<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getprojectid" class="tsd-kind-icon">get<wbr>Project<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getprotocol" class="tsd-kind-icon">get<wbr>Protocol</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#getregion" class="tsd-kind-icon">get<wbr>Region</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setaccount" class="tsd-kind-icon">set<wbr>Account</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setauthtoken" class="tsd-kind-icon">set<wbr>Auth<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setfunctionname" class="tsd-kind-icon">set<wbr>Function<wbr>Name</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setfunctionuri" class="tsd-kind-icon">set<wbr>Function<wbr>Uri</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setorgid" class="tsd-kind-icon">set<wbr>Org<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setprojectid" class="tsd-kind-icon">set<wbr>Project<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setprotocol" class="tsd-kind-icon">set<wbr>Protocol</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.gcpconnectionparams.html#setregion" class="tsd-kind-icon">set<wbr>Region</a></li>
@@ -179,7 +185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:49</li>
+									<li>Defined in connect/GcpConnectionParams.ts:51</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -206,6 +212,29 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getaccount" class="tsd-anchor"></a>
+					<h3>get<wbr>Account</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Account<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in connect/GcpConnectionParams.ts:175</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the service account name</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the account name.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getauthtoken" class="tsd-anchor"></a>
 					<h3>get<wbr>Auth<wbr>Token</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -215,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:155</li>
+									<li>Defined in connect/GcpConnectionParams.ts:157</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -238,7 +267,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:101</li>
+									<li>Defined in connect/GcpConnectionParams.ts:103</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -261,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:82</li>
+									<li>Defined in connect/GcpConnectionParams.ts:84</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,6 +304,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getorgid" class="tsd-anchor"></a>
+					<h3>get<wbr>Org<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Org<wbr>Id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in connect/GcpConnectionParams.ts:193</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets organization name</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the organization name.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getprojectid" class="tsd-anchor"></a>
 					<h3>get<wbr>Project<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -284,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:137</li>
+									<li>Defined in connect/GcpConnectionParams.ts:139</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:64</li>
+									<li>Defined in connect/GcpConnectionParams.ts:66</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -330,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:119</li>
+									<li>Defined in connect/GcpConnectionParams.ts:121</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -344,6 +396,37 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setaccount" class="tsd-anchor"></a>
+					<h3>set<wbr>Account</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Account<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in connect/GcpConnectionParams.ts:184</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the service account name</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a new account name.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setauthtoken" class="tsd-anchor"></a>
 					<h3>set<wbr>Auth<wbr>Token</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -353,7 +436,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:164</li>
+									<li>Defined in connect/GcpConnectionParams.ts:166</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -384,7 +467,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:110</li>
+									<li>Defined in connect/GcpConnectionParams.ts:112</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -415,7 +498,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:91</li>
+									<li>Defined in connect/GcpConnectionParams.ts:93</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -437,6 +520,37 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setorgid" class="tsd-anchor"></a>
+					<h3>set<wbr>Org<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Org<wbr>Id<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in connect/GcpConnectionParams.ts:202</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets organization name</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a new organization name.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setprojectid" class="tsd-anchor"></a>
 					<h3>set<wbr>Project<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -446,7 +560,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:146</li>
+									<li>Defined in connect/GcpConnectionParams.ts:148</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,7 +591,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:73</li>
+									<li>Defined in connect/GcpConnectionParams.ts:75</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -508,7 +622,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:128</li>
+									<li>Defined in connect/GcpConnectionParams.ts:130</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,7 +653,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:185</li>
+									<li>Defined in connect/GcpConnectionParams.ts:223</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -570,7 +684,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:216</li>
+									<li>Defined in connect/GcpConnectionParams.ts:254</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -608,7 +722,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:175</li>
+									<li>Defined in connect/GcpConnectionParams.ts:213</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -641,7 +755,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/GcpConnectionParams.ts:239</li>
+									<li>Defined in connect/GcpConnectionParams.ts:277</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -708,6 +822,9 @@
 								<a href="connect.gcpconnectionparams.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="connect.gcpconnectionparams.html#getaccount" class="tsd-kind-icon">get<wbr>Account</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.gcpconnectionparams.html#getauthtoken" class="tsd-kind-icon">get<wbr>Auth<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -715,6 +832,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.gcpconnectionparams.html#getfunctionuri" class="tsd-kind-icon">get<wbr>Function<wbr>Uri</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="connect.gcpconnectionparams.html#getorgid" class="tsd-kind-icon">get<wbr>Org<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.gcpconnectionparams.html#getprojectid" class="tsd-kind-icon">get<wbr>Project<wbr>Id</a>
@@ -726,6 +846,9 @@
 								<a href="connect.gcpconnectionparams.html#getregion" class="tsd-kind-icon">get<wbr>Region</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="connect.gcpconnectionparams.html#setaccount" class="tsd-kind-icon">set<wbr>Account</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.gcpconnectionparams.html#setauthtoken" class="tsd-kind-icon">set<wbr>Auth<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -733,6 +856,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.gcpconnectionparams.html#setfunctionuri" class="tsd-kind-icon">set<wbr>Function<wbr>Uri</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="connect.gcpconnectionparams.html#setorgid" class="tsd-kind-icon">set<wbr>Org<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.gcpconnectionparams.html#setprojectid" class="tsd-kind-icon">set<wbr>Project<wbr>Id</a>

@@ -8,8 +8,8 @@ const pip_services3_commons_nodex_3 = require("pip-services3-commons-nodex");
 const pip_services3_components_nodex_1 = require("pip-services3-components-nodex");
 const pip_services3_components_nodex_2 = require("pip-services3-components-nodex");
 /**
- * Contains connection parameters to authenticate against Google Functions
- * and connect to specific Google Function.
+ * Contains connection parameters to authenticate against Google
+ * and connect to specific Google Cloud Platform.
  *
  * The class is able to compose and parse Google Function connection parameters.
  *
@@ -20,10 +20,12 @@ const pip_services3_components_nodex_2 = require("pip-services3-components-nodex
  *      - protocol:      connection protocol
  *      - project_id:    is your Google Cloud Platform project ID
  *      - region:        is the region where your function is deployed
- *      - function_name: is the name of the HTTP function you deployed
+ *      - function:      is the name of the HTTP function you deployed
+ *      - org_id:        organization name
  *
  * - credentials:
- *     - auth_token:    Google-generated ID token or null if using custom auth
+ *     - account: the service account name
+ *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)
  *
  * In addition to standard parameters [[https://pip-services3-nodex.github.io/pip-services3-components-nodex/classes/auth.credentialparams.html CredentialParams]] may contain any number of custom parameters
  *
@@ -36,8 +38,8 @@ const pip_services3_components_nodex_2 = require("pip-services3-components-nodex
  *         'connection.uri', 'http://east-my_test_project.cloudfunctions.net/myfunction',
  *         'connection.protocol', 'http',
  *         'connection.region', 'east',
- *         'connection.function_name', 'myfunction',
- *         'credential.project_id', 'my_test_project',
+ *         'connection.function', 'myfunction',
+ *         'connection.project_id', 'my_test_project',
  *         'credential.auth_token', '1234',
  *     );
  *
@@ -95,7 +97,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      * @returns {string} the Google function name.
      */
     getFunctionName() {
-        return super.getAsNullableString("function_name");
+        return super.getAsNullableString("function");
     }
     /**
      * Sets the Google function name.
@@ -103,7 +105,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      * @param value a new Google function name.
      */
     setFunctionName(value) {
-        super.put("function_name", value);
+        super.put("function", value);
     }
     /**
     * Gets the region where your function is deployed.
@@ -138,10 +140,10 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
         super.put("project_id", value);
     }
     /**
-   * Gets an ID token with the request to authenticate themselves
-   *
-   * @returns {string} the ID token.
-   */
+     * Gets an ID token with the request to authenticate themselves
+     *
+     * @returns {string} the ID token.
+     */
     getAuthToken() {
         return super.getAsNullableString("auth_token");
     }
@@ -152,6 +154,38 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      */
     setAuthToken(value) {
         super.put("auth_token", value);
+    }
+    /**
+     * Gets the service account name
+     *
+     * @returns {string} the account name.
+     */
+    getAccount() {
+        return super.getAsNullableString("account");
+    }
+    /**
+     * Sets the service account name
+     *
+     * @param value a new account name.
+     */
+    setAccount(value) {
+        super.put("account", value);
+    }
+    /**
+     * Gets organization name
+     *
+     * @returns {string} the organization name.
+     */
+    getOrgId() {
+        return super.getAsNullableString("org_id");
+    }
+    /**
+     * Sets organization name
+     *
+     * @param value a new organization name.
+     */
+    setOrgId(value) {
+        super.put("org_id", value);
     }
     /**
      * Creates a new GcpConnectionParams object filled with key-value pairs serialized as a string.
@@ -176,7 +210,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
         const region = this.getRegion();
         const projectId = this.getProjectId();
         if (uri === null && (projectId == null && region == null && functionName === null && protocol === null)) {
-            throw new pip_services3_commons_nodex_3.ConfigException(correlationId, "NO_CONNECTION_URI", "No uri, app_name and function_name is configured in Auzre function uri");
+            throw new pip_services3_commons_nodex_3.ConfigException(correlationId, "NO_CONNECTION_URI", "No uri, project_id, region and function is configured in Google function uri");
         }
         if (protocol != null && "http" != protocol && "https" != protocol) {
             throw new pip_services3_commons_nodex_3.ConfigException(correlationId, "WRONG_PROTOCOL", "Protocol is not supported by REST connection")

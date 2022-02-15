@@ -5,10 +5,10 @@ This module is a part of the [Pip.Services](http://pipservices.org) polyglot mic
 This module contains components for supporting work with the Google cloud platform.
 
 The module contains the following packages:
-- **Clients** - client components for working with Google Cloud Functions
+- **Clients** - client components for working with Google Cloud Platform
 - **Connect** - components of installation and connection settings
 - **Container** - components for creating containers for Google server-side functions
-- **Services** - contains interfaces and classes used to create Google Function services
+- **Services** - contains interfaces and classes used to create Google services
 
 
 <a name="links"></a> Quick links:

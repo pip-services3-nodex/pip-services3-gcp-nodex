@@ -22,7 +22,7 @@ suite('DummyCommandableCloudFunctionClient', () => {
     if (!uri && (!region || !functionName || !protocol || !projectId)) {
         return;
     }
-    let config = pip_services3_commons_nodex_1.ConfigParams.fromTuples('connection.uri', uri, 'connection.protocol', protocol, 'connection.region', region, 'connection.function_name', functionName, 'credential.project_id', projectId);
+    let config = pip_services3_commons_nodex_1.ConfigParams.fromTuples('connection.uri', uri, 'connection.protocol', protocol, 'connection.region', region, 'connection.function', functionName, 'connection.project_id', projectId);
     let client;
     let fixture;
     setup(() => __awaiter(void 0, void 0, void 0, function* () {

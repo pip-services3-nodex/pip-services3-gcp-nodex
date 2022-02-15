@@ -16,10 +16,12 @@ import { GcpConnectionParams } from './GcpConnectionParams';
  *      - protocol:      connection protocol
  *      - project_id:    is your Google Cloud Platform project ID
  *      - region:        is the region where your function is deployed
- *      - function_name: is the name of the HTTP function you deployed
+ *      - function:      is the name of the HTTP function you deployed
+ *      - org_id:        organization name
  *
  * - credentials:
- *     - auth_token:    Google-generated ID token or null if using custom auth
+ *     - account: the service account name
+ *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)
  *
  * ### References ###
  *
@@ -33,8 +35,8 @@ import { GcpConnectionParams } from './GcpConnectionParams';
  *         'connection.uri', 'http://east-my_test_project.cloudfunctions.net/myfunction',
  *         'connection.protocol', 'http',
  *         'connection.region', 'east',
- *         'connection.function_name', 'myfunction',
- *         'credential.project_id', 'my_test_project',
+ *         'connection.function', 'myfunction',
+ *         'connection.project_id', 'my_test_project',
  *         'credential.auth_token', '1234',
  *     );
  *
