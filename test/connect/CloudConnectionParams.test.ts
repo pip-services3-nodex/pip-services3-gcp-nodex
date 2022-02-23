@@ -8,9 +8,9 @@ suite('GcpConnectionParams', ()=> {
 
     test('Test Empty Connection', async () => {
         let connection = new GcpConnectionParams();
-        assert.isNull(connection.getFunctionUri());
+        assert.isNull(connection.getUri());
         assert.isNull(connection.getProjectId());
-        assert.isNull(connection.getFunctionName());
+        assert.isNull(connection.getFunction());
         assert.isNull(connection.getRegion());
         assert.isNull(connection.getProtocol());
         assert.isNull(connection.getAuthToken());
@@ -32,10 +32,10 @@ suite('GcpConnectionParams', ()=> {
         resolver.configure(config1);
         let connection =  await resolver.resolve('');
 
-        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getFunctionUri());
+        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getUri());
         assert.equal('east', connection.getRegion());
         assert.equal('http', connection.getProtocol());
-        assert.equal('myfunction', connection.getFunctionName());
+        assert.equal('myfunction', connection.getFunction());
         assert.equal('my_test_project', connection.getProjectId());
         assert.equal('1234', connection.getAuthToken());
 
@@ -43,10 +43,10 @@ suite('GcpConnectionParams', ()=> {
         resolver.configure(config2);
         connection =  await resolver.resolve('');
 
-        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getFunctionUri());
+        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getUri());
         assert.equal('east', connection.getRegion());
         assert.equal('http', connection.getProtocol());
-        assert.equal('myfunction', connection.getFunctionName());
+        assert.equal('myfunction', connection.getFunction());
         assert.equal('my_test_project', connection.getProjectId());
         assert.equal('1234', connection.getAuthToken());
     });

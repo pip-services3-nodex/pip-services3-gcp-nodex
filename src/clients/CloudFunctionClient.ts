@@ -190,9 +190,9 @@ export abstract class CloudFunctionClient implements IOpenable, IConfigurable, I
         this._connection = await this._connectionResolver.resolve(correlationId);
         if (this._connection.getAuthToken() != null)
             this._headers['Authorization'] = 'bearer ' + this._connection.getAuthToken();
-        this._uri = this._connection.getFunctionUri();
+        this._uri = this._connection.getUri();
         try {
-            this._uri = this._connection.getFunctionUri();
+            this._uri = this._connection.getUri();
             let restify = require('restify-clients');
             this._client = restify.createJsonClient({
                 url: this._uri,
@@ -207,7 +207,7 @@ export abstract class CloudFunctionClient implements IOpenable, IConfigurable, I
                 version: '*'
             });
 
-            this._logger.debug(correlationId, "Google function client connected to %s", this._connection.getFunctionUri());
+            this._logger.debug(correlationId, "Google function client connected to %s", this._connection.getUri());
 
         } catch (err) {
             this._client = null;

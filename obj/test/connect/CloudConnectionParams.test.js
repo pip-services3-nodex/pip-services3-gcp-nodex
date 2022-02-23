@@ -16,9 +16,9 @@ const GcpConnectionResolver_1 = require("../../src/connect/GcpConnectionResolver
 suite('GcpConnectionParams', () => {
     test('Test Empty Connection', () => __awaiter(void 0, void 0, void 0, function* () {
         let connection = new GcpConnectionParams_1.GcpConnectionParams();
-        assert.isNull(connection.getFunctionUri());
+        assert.isNull(connection.getUri());
         assert.isNull(connection.getProjectId());
-        assert.isNull(connection.getFunctionName());
+        assert.isNull(connection.getFunction());
         assert.isNull(connection.getRegion());
         assert.isNull(connection.getProtocol());
         assert.isNull(connection.getAuthToken());
@@ -29,19 +29,19 @@ suite('GcpConnectionParams', () => {
         let resolver = new GcpConnectionResolver_1.GcpConnectionResolver();
         resolver.configure(config1);
         let connection = yield resolver.resolve('');
-        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getFunctionUri());
+        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getUri());
         assert.equal('east', connection.getRegion());
         assert.equal('http', connection.getProtocol());
-        assert.equal('myfunction', connection.getFunctionName());
+        assert.equal('myfunction', connection.getFunction());
         assert.equal('my_test_project', connection.getProjectId());
         assert.equal('1234', connection.getAuthToken());
         resolver = new GcpConnectionResolver_1.GcpConnectionResolver();
         resolver.configure(config2);
         connection = yield resolver.resolve('');
-        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getFunctionUri());
+        assert.equal('http://east-my_test_project.cloudfunctions.net/myfunction', connection.getUri());
         assert.equal('east', connection.getRegion());
         assert.equal('http', connection.getProtocol());
-        assert.equal('myfunction', connection.getFunctionName());
+        assert.equal('myfunction', connection.getFunction());
         assert.equal('my_test_project', connection.getProjectId());
         assert.equal('1234', connection.getAuthToken());
     }));

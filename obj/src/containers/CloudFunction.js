@@ -50,9 +50,9 @@ const CloudFunctionRequestHelper_1 = require("./CloudFunctionRequestHelper");
  *         }
  *     }
  *
- *     let CloudFunction = new MyCloudFunction();
+ *     let cloudFunction = new MyCloudFunction();
  *
- *     await service.run();
+ *     await cloudFunction.run();
  *     console.log("MyCloudFunction is started");
  */
 class CloudFunction extends pip_services3_container_nodex_1.Container {

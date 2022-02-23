@@ -81,7 +81,7 @@ export class GcpConnectionParams extends ConfigParams {
      *
      * @returns {string} the Google function uri.
      */
-    public getFunctionUri(): string {
+    public getUri(): string {
         return super.getAsNullableString("uri");
     }
 
@@ -90,7 +90,7 @@ export class GcpConnectionParams extends ConfigParams {
      *
      * @param value a new Google function uri.
      */
-    public setFunctionUri(value: string) {
+    public setUri(value: string) {
         super.put("uri", value);
     }
 
@@ -100,7 +100,7 @@ export class GcpConnectionParams extends ConfigParams {
      *
      * @returns {string} the Google function name.
      */
-    public getFunctionName(): string {
+    public getFunction(): string {
         return super.getAsNullableString("function");
     }
 
@@ -109,7 +109,7 @@ export class GcpConnectionParams extends ConfigParams {
      *
      * @param value a new Google function name.
      */
-    public setFunctionName(value: string) {
+    public setFunction(value: string) {
         super.put("function", value);
     }
 
@@ -221,9 +221,9 @@ export class GcpConnectionParams extends ConfigParams {
      * @param correlationId     (optional) transaction id to trace execution through call chain.
      */
     public validate(correlationId: string) {
-        const uri = this.getFunctionUri();
+        const uri = this.getUri();
         const protocol = this.getProtocol();
-        const functionName = this.getFunctionName();
+        const functionName = this.getFunction();
         const region = this.getRegion();
         const projectId = this.getProjectId();
 
@@ -263,6 +263,18 @@ export class GcpConnectionParams extends ConfigParams {
             result.append(connection);
 
         return result;
+    }
+
+    /**
+     * Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+     * Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
+     * 
+     * @param tuples	the tuples to fill a new ConfigParams object.
+     * @returns			a new ConfigParams object.
+     */
+    public static fromTuples(...tuples: any[]): GcpConnectionParams {
+        let config = ConfigParams.fromTuples(...tuples);
+        return GcpConnectionParams.fromConfig(config);
     }
 
     /**

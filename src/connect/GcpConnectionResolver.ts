@@ -110,17 +110,17 @@ export class GcpConnectionResolver implements IConfigurable, IReferenceable {
     private composeConnection(connection: GcpConnectionParams): GcpConnectionParams {
         connection = GcpConnectionParams.mergeConfigs(connection);
 
-        let uri = connection.getFunctionUri();
+        let uri = connection.getUri();
 
         if (uri == null || uri == "") {
             let protocol = connection.getProtocol();
-            let functionName = connection.getFunctionName();
+            let functionName = connection.getFunction();
             let projectId = connection.getProjectId();
             let region = connection.getRegion();
             // https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/FUNCTION_NAME
-            uri = `${protocol}://${region}-${projectId}.cloudfunctions.net/${functionName}`;
+            uri = `${protocol}://${region}-${projectId}.cloudfunctions.net` + (functionName != null ? `/${functionName}` : '');
 
-            connection.setFunctionUri(uri);
+            connection.setUri(uri);
         } else {
             let address = url.parse(uri);
             let protocol = ("" + address.protocol).replace(':', '');
@@ -131,7 +131,7 @@ export class GcpConnectionResolver implements IConfigurable, IReferenceable {
             
             connection.setRegion(region);
             connection.setProjectId(projectId);
-            connection.setFunctionName(functionName);
+            connection.setFunction(functionName);
             connection.setProtocol(protocol);
         }
 

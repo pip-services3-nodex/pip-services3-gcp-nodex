@@ -67,25 +67,25 @@ export declare class GcpConnectionParams extends ConfigParams {
      *
      * @returns {string} the Google function uri.
      */
-    getFunctionUri(): string;
+    getUri(): string;
     /**
      * Sets the Google function uri.
      *
      * @param value a new Google function uri.
      */
-    setFunctionUri(value: string): void;
+    setUri(value: string): void;
     /**
      * Gets the Google function name.
      *
      * @returns {string} the Google function name.
      */
-    getFunctionName(): string;
+    getFunction(): string;
     /**
      * Sets the Google function name.
      *
      * @param value a new Google function name.
      */
-    setFunctionName(value: string): void;
+    setFunction(value: string): void;
     /**
     * Gets the region where your function is deployed.
     *
@@ -170,6 +170,14 @@ export declare class GcpConnectionParams extends ConfigParams {
      * @see [[mergeConfigs]]
      */
     static fromConfig(config: ConfigParams): GcpConnectionParams;
+    /**
+     * Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+     * Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
+     *
+     * @param tuples	the tuples to fill a new ConfigParams object.
+     * @returns			a new ConfigParams object.
+     */
+    static fromTuples(...tuples: any[]): GcpConnectionParams;
     /**
      * Retrieves GcpConnectionParams from multiple configuration parameters.
      * The values are retrieves from "connection" and "credential" sections.

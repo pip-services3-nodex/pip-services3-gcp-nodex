@@ -32,9 +32,9 @@ import { Request, Response } from 'express';
  *         }
  *     }
  *
- *     let CloudFunction = new MyCloudFunction();
+ *     let cloudFunction = new MyCloudFunction();
  *
- *     await service.run();
+ *     await cloudFunction.run();
  *     console.log("MyCloudFunction is started");
  */
 export declare abstract class CloudFunction extends Container {

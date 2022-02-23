@@ -110,15 +110,15 @@ class GcpConnectionResolver {
     }
     composeConnection(connection) {
         connection = GcpConnectionParams_1.GcpConnectionParams.mergeConfigs(connection);
-        let uri = connection.getFunctionUri();
+        let uri = connection.getUri();
         if (uri == null || uri == "") {
             let protocol = connection.getProtocol();
-            let functionName = connection.getFunctionName();
+            let functionName = connection.getFunction();
             let projectId = connection.getProjectId();
             let region = connection.getRegion();
             // https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/FUNCTION_NAME
-            uri = `${protocol}://${region}-${projectId}.cloudfunctions.net/${functionName}`;
-            connection.setFunctionUri(uri);
+            uri = `${protocol}://${region}-${projectId}.cloudfunctions.net` + (functionName != null ? `/${functionName}` : '');
+            connection.setUri(uri);
         }
         else {
             let address = url.parse(uri);
@@ -129,7 +129,7 @@ class GcpConnectionResolver {
             // let functionName = value.slice(-1) != '/' ? value.slice(value.lastIndexOf('/') + 1) : value.slice(value.slice(0, -1).lastIndexOf('/') + 1, -1);
             connection.setRegion(region);
             connection.setProjectId(projectId);
-            connection.setFunctionName(functionName);
+            connection.setFunction(functionName);
             connection.setProtocol(protocol);
         }
         return connection;

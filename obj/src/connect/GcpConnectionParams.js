@@ -80,7 +80,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      *
      * @returns {string} the Google function uri.
      */
-    getFunctionUri() {
+    getUri() {
         return super.getAsNullableString("uri");
     }
     /**
@@ -88,7 +88,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      *
      * @param value a new Google function uri.
      */
-    setFunctionUri(value) {
+    setUri(value) {
         super.put("uri", value);
     }
     /**
@@ -96,7 +96,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      *
      * @returns {string} the Google function name.
      */
-    getFunctionName() {
+    getFunction() {
         return super.getAsNullableString("function");
     }
     /**
@@ -104,7 +104,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      *
      * @param value a new Google function name.
      */
-    setFunctionName(value) {
+    setFunction(value) {
         super.put("function", value);
     }
     /**
@@ -204,9 +204,9 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      * @param correlationId     (optional) transaction id to trace execution through call chain.
      */
     validate(correlationId) {
-        const uri = this.getFunctionUri();
+        const uri = this.getUri();
         const protocol = this.getProtocol();
-        const functionName = this.getFunctionName();
+        const functionName = this.getFunction();
         const region = this.getRegion();
         const projectId = this.getProjectId();
         if (uri === null && (projectId == null && region == null && functionName === null && protocol === null)) {
@@ -235,6 +235,17 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
         for (let connection of connections)
             result.append(connection);
         return result;
+    }
+    /**
+     * Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+     * Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
+     *
+     * @param tuples	the tuples to fill a new ConfigParams object.
+     * @returns			a new ConfigParams object.
+     */
+    static fromTuples(...tuples) {
+        let config = pip_services3_commons_nodex_1.ConfigParams.fromTuples(...tuples);
+        return GcpConnectionParams.fromConfig(config);
     }
     /**
      * Retrieves GcpConnectionParams from multiple configuration parameters.
