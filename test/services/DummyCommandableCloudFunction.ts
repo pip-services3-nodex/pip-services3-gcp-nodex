@@ -4,7 +4,7 @@ import { Descriptor } from "pip-services3-commons-nodex";
 
 export class DummyCommandableCloudFunction extends CommandableCloudFunction {
     public constructor() {
-        super("dummy", "Dummy commandable lambda function");
+        super("dummy", "Dummy commandable cloud function");
         this._dependencyResolver.put('controller', new Descriptor('pip-services-dummies', 'controller', 'default', '*', '*'));
         this._factories.add(new DummyFactory());
     }

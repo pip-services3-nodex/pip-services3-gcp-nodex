@@ -9,7 +9,7 @@ import { ConnectionParams } from 'pip-services3-components-nodex';
  * Contains connection parameters to authenticate against Google
  * and connect to specific Google Cloud Platform.
  * 
- * The class is able to compose and parse Google Function connection parameters.
+ * The class is able to compose and parse Google Platform connection parameters.
  * 
  * ### Configuration parameters ###
  * 
@@ -59,36 +59,36 @@ export class GcpConnectionParams extends ConfigParams {
     }
 
     /**
-     * Gets the Google function connection protocol.
+     * Gets the Google Platform service connection protocol.
      *
-     * @returns {string} the Google function connection protocol.
+     * @returns {string} the Google service connection protocol.
      */
     public getProtocol(): string {
         return super.getAsNullableString("protocol");
     }
 
     /**
-     * Sets the Google function connection protocol.
+     * Sets the Google Platform service connection protocol.
      *
-     * @param value a new Google function connection protocol.
+     * @param value a new Google service connection protocol.
      */
     public setProtocol(value: string) {
         super.put("protocol", value);
     }
 
     /**
-     * Gets the Google function uri.
+     * Gets the Google Platform service uri.
      *
-     * @returns {string} the Google function uri.
+     * @returns {string} the Google sevice uri.
      */
     public getUri(): string {
         return super.getAsNullableString("uri");
     }
 
     /**
-     * Sets the Google function uri.
+     * Sets the Google Platform service uri.
      *
-     * @param value a new Google function uri.
+     * @param value a new Google service uri.
      */
     public setUri(value: string) {
         super.put("uri", value);

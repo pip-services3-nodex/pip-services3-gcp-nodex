@@ -6,7 +6,7 @@ const DummyFactory_1 = require("../DummyFactory");
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 class DummyCommandableCloudFunction extends CommandableCloudFunction_1.CommandableCloudFunction {
     constructor() {
-        super("dummy", "Dummy commandable lambda function");
+        super("dummy", "Dummy commandable cloud function");
         this._dependencyResolver.put('controller', new pip_services3_commons_nodex_1.Descriptor('pip-services-dummies', 'controller', 'default', '*', '*'));
         this._factories.add(new DummyFactory_1.DummyFactory());
     }

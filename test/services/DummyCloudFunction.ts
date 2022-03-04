@@ -3,7 +3,7 @@ import { DummyFactory } from '../DummyFactory';
 
 export class DummyCloudFunction extends CloudFunction {
     public constructor() {
-        super("dummy", "Dummy lambda function");
+        super("dummy", "Dummy cloud function");
         this._factories.add(new DummyFactory());
     }
 }

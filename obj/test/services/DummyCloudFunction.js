@@ -5,7 +5,7 @@ const CloudFunction_1 = require("../../src/containers/CloudFunction");
 const DummyFactory_1 = require("../DummyFactory");
 class DummyCloudFunction extends CloudFunction_1.CloudFunction {
     constructor() {
-        super("dummy", "Dummy lambda function");
+        super("dummy", "Dummy cloud function");
         this._factories.add(new DummyFactory_1.DummyFactory());
     }
 }
