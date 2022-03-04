@@ -36,7 +36,7 @@ suite('DummyCloudFunctionClient', () => {
     teardown(() => __awaiter(void 0, void 0, void 0, function* () {
         yield client.close(null);
         if (uri == 'http://localhost:3007')
-            yield fixture.startCloudServiceLocally();
+            yield fixture.stopCloudServiceLocally();
     }));
     test('Crud Operations', () => __awaiter(void 0, void 0, void 0, function* () {
         yield fixture.testCrudOperations();

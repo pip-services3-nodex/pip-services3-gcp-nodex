@@ -18,7 +18,7 @@ export class DummyCloudFunction extends CloudFunction {
     private _controller: IDummyController;
 
     public constructor() {
-        super("dummy", "Dummy lambda function");
+        super("dummy", "Dummy GCP function");
         this._dependencyResolver.put('controller', new Descriptor('pip-services-dummies', 'controller', 'default', '*', '*'));
         this._factories.add(new DummyFactory());
     }

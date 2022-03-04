@@ -125,8 +125,8 @@ export class GcpConnectionResolver implements IConfigurable, IReferenceable {
             let address = url.parse(uri);
             let protocol = ("" + address.protocol).replace(':', '');
             let functionName = address.path.replace('/', '');
-            let region = uri.slice(uri.indexOf('//') + 2, uri.indexOf('-'));
-            let projectId = uri.slice(uri.indexOf('-') + 1, uri.indexOf('.'));
+            let region = uri.indexOf('-') != -1 ? uri.slice(uri.indexOf('//') + 2, uri.indexOf('-')) : '';
+            let projectId = uri.indexOf('-') != -1 ? uri.slice(uri.indexOf('-') + 1, uri.indexOf('.')) : '';
             // let functionName = value.slice(-1) != '/' ? value.slice(value.lastIndexOf('/') + 1) : value.slice(value.slice(0, -1).lastIndexOf('/') + 1, -1);
             
             connection.setRegion(region);

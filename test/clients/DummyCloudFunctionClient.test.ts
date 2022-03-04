@@ -42,7 +42,7 @@ suite('DummyCloudFunctionClient', ()=> {
         await client.close(null);
 
         if (uri == 'http://localhost:3007')
-            await fixture.startCloudServiceLocally();
+            await fixture.stopCloudServiceLocally();
     });
 
     test('Crud Operations', async () => {
