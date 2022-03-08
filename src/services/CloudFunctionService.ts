@@ -206,7 +206,7 @@ export abstract class CloudFunctionService implements ICloudFunctionService, IOp
                 let correlationId = this.getCorrelationId(req);
                 let err = schema.validateAndReturnException(correlationId, req, false);
                 if (err) {
-                    throw err;
+                    return err;
                 }
             }
 

@@ -52,8 +52,7 @@ class DummyCloudFunctionFixture {
             let response = yield new Promise((resolve, reject) => {
                 this.rest.post('/' + this.functionName, data, (err, req, res, entity) => {
                     if (err != null) {
-                        reject(err);
-                        return;
+                        resolve(err);
                     }
                     resolve(Object.keys(entity).length > 0 ? entity : null);
                 });

@@ -97,6 +97,7 @@ class CommandableCloudFunctionService extends CloudFunctionService_1.CloudFuncti
                 }
                 catch (ex) {
                     timing.endFailure(ex);
+                    pip_services3_rpc_nodex_1.HttpResponseSender.sendError(req, res, ex);
                 }
                 finally {
                     timing.endTiming();
