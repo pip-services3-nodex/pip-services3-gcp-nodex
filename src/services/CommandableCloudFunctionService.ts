@@ -97,6 +97,7 @@ export abstract class CommandableCloudFunctionService extends CloudFunctionServi
                     HttpResponseSender.sendResult(req, res, result);
                 } catch (ex) {
                     timing.endFailure(ex);
+                    HttpResponseSender.sendError(req, res, ex);
                 } finally {
                     timing.endTiming();
                 }

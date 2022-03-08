@@ -190,7 +190,7 @@ class CloudFunctionService {
                 let correlationId = this.getCorrelationId(req);
                 let err = schema.validateAndReturnException(correlationId, req, false);
                 if (err) {
-                    throw err;
+                    return err;
                 }
             }
             return action.call(this, req, res);
