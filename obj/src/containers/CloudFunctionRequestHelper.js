@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CloudFunctionRequestHelper = void 0;
+/** @module containers */
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 /**
  * Class that helps to prepare function requests

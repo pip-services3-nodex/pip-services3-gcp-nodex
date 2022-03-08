@@ -1,6 +1,6 @@
 {
     "name": "pip-services3-gcp-nodex",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Conceptual Vision Consulting LLC",
     "description": "Google Cloud specific components for Node.js / ES2017",
     "contributors": [
