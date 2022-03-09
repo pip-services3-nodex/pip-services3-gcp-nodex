@@ -1,6 +1,6 @@
 {
     "name": "pip-services3-gcp-nodex",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": "Conceptual Vision Consulting LLC",
     "description": "Google Cloud specific components for Node.js / ES2017",
     "contributors": [
@@ -43,10 +43,10 @@
     },
     "dependencies": {
         "express": "^4.17.2",
-        "pip-services3-commons-nodex": "^1.0.1",
-        "pip-services3-components-nodex": "^1.2.2",
-        "pip-services3-container-nodex": "^1.0.2",
-        "pip-services3-rpc-nodex": "^1.0.2",
+        "pip-services3-commons-nodex": "^1.0.*",
+        "pip-services3-components-nodex": "^1.2.*",
+        "pip-services3-container-nodex": "^1.0.*",
+        "pip-services3-rpc-nodex": "^1.0.*",
         "restify-clients": "^2.6.4",
         "restify-cors-middleware2": "2.1.2"
     },

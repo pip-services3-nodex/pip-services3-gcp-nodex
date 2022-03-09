@@ -188,9 +188,9 @@ class CloudFunctionService {
             if (schema && req) {
                 // Perform validation
                 let correlationId = this.getCorrelationId(req);
-                let err = schema.validateAndReturnException(correlationId, req, false);
+                let err = schema.validateAndReturnException(correlationId, req.body, false);
                 if (err) {
-                    return err;
+                    throw err;
                 }
             }
             return action.call(this, req, res);
