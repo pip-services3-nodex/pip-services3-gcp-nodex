@@ -105,6 +105,12 @@ class DummyCloudFunctionFixture {
                 dummy_id: dummy1.id
             });
             assert.isNull(dummy || null);
+            // Failed validation
+            let err = yield this.httpInvoke({
+                cmd: 'dummies.create_dummy',
+                dummy: null
+            });
+            assert.equal(err.restCode, 'INVALID_DATA');
         });
     }
 }

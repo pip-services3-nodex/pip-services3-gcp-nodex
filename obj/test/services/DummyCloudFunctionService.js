@@ -19,7 +19,6 @@ const pip_services3_commons_nodex_6 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_7 = require("pip-services3-commons-nodex");
 const CloudFunctionService_1 = require("../../src/services/CloudFunctionService");
 const DummySchema_1 = require("../DummySchema");
-const CloudFunctionRequestSchema_1 = require("../CloudFunctionRequestSchema");
 const pip_services3_rpc_nodex_1 = require("pip-services3-rpc-nodex");
 class DummyCloudFunctionService extends CloudFunctionService_1.CloudFunctionService {
     constructor() {
@@ -79,20 +78,20 @@ class DummyCloudFunctionService extends CloudFunctionService_1.CloudFunctionServ
         });
     }
     register() {
-        this.registerAction('get_dummies', new CloudFunctionRequestSchema_1.CloudFunctionRequestSchema()
+        this.registerAction('get_dummies', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty('body', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("filter", new pip_services3_commons_nodex_6.FilterParamsSchema())
             .withOptionalProperty("paging", new pip_services3_commons_nodex_7.PagingParamsSchema())), this.getPageByFilter);
-        this.registerAction('get_dummy_by_id', new CloudFunctionRequestSchema_1.CloudFunctionRequestSchema()
+        this.registerAction('get_dummy_by_id', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("dummy_id", pip_services3_commons_nodex_5.TypeCode.String)), this.getOneById);
-        this.registerAction('create_dummy', new CloudFunctionRequestSchema_1.CloudFunctionRequestSchema()
+        this.registerAction('create_dummy', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withRequiredProperty("dummy", new DummySchema_1.DummySchema())), this.create);
-        this.registerAction('update_dummy', new CloudFunctionRequestSchema_1.CloudFunctionRequestSchema()
+        this.registerAction('update_dummy', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withRequiredProperty("dummy", new DummySchema_1.DummySchema())), this.update);
-        this.registerAction('delete_dummy', new CloudFunctionRequestSchema_1.CloudFunctionRequestSchema()
+        this.registerAction('delete_dummy', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("dummy_id", pip_services3_commons_nodex_5.TypeCode.String)), this.deleteById);
     }

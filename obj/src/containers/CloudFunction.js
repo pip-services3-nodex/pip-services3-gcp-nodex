@@ -227,10 +227,11 @@ class CloudFunction extends pip_services3_container_nodex_1.Container {
         const actionCurl = (req, res) => __awaiter(this, void 0, void 0, function* () {
             // Perform validation
             if (schema != null) {
+                let params = Object.assign({}, req.params, req.query, { body: req.body });
                 let correlationId = this.getCorrelationId(req);
-                let err = schema.validateAndReturnException(correlationId, req.body, false);
+                let err = schema.validateAndReturnException(correlationId, params, false);
                 if (err != null) {
-                    throw err;
+                    pip_services3_rpc_nodex_1.HttpResponseSender.sendError(req, res, err);
                 }
             }
             // Todo: perform verification?

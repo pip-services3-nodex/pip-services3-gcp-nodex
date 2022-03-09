@@ -11,7 +11,7 @@ import { DependencyResolver } from 'pip-services3-commons-nodex';
 import { CompositeLogger } from 'pip-services3-components-nodex';
 import { CompositeCounters } from 'pip-services3-components-nodex';
 import { CompositeTracer } from 'pip-services3-components-nodex';
-import { InstrumentTiming } from 'pip-services3-rpc-nodex';
+import { HttpResponseSender, InstrumentTiming } from 'pip-services3-rpc-nodex';
 import { Schema } from 'pip-services3-commons-nodex';
 
 import { CloudFunctionAction } from './CloudFunctionAction';
@@ -203,10 +203,11 @@ export abstract class CloudFunctionService implements ICloudFunctionService, IOp
             // Validate object
             if (schema && req) {
                 // Perform validation
+                let params = Object.assign({}, req.params, req.query, { body: req.body });
                 let correlationId = this.getCorrelationId(req);
-                let err = schema.validateAndReturnException(correlationId, req.body, false);
+                let err = schema.validateAndReturnException(correlationId, params, false);
                 if (err) {
-                    throw err;
+                    HttpResponseSender.sendError(req, res, err);
                 }
             }
 

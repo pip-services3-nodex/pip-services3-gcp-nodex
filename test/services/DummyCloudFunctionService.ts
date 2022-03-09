@@ -10,7 +10,6 @@ import { PagingParamsSchema } from 'pip-services3-commons-nodex';
 import { CloudFunctionService } from '../../src/services/CloudFunctionService';
 import { IDummyController } from '../IDummyController';
 import { DummySchema } from '../DummySchema';
-import { CloudFunctionRequestSchema } from '../CloudFunctionRequestSchema';
 import { HttpResponseSender } from 'pip-services3-rpc-nodex';
 
 export class DummyCloudFunctionService extends CloudFunctionService {
@@ -93,7 +92,7 @@ export class DummyCloudFunctionService extends CloudFunctionService {
     protected register() {
         this.registerAction(
             'get_dummies',
-            new CloudFunctionRequestSchema()
+            new ObjectSchema(true)
                 .withOptionalProperty('body',
                     new ObjectSchema(true)
                         .withOptionalProperty("filter", new FilterParamsSchema())
@@ -103,7 +102,7 @@ export class DummyCloudFunctionService extends CloudFunctionService {
 
         this.registerAction(
             'get_dummy_by_id',
-            new CloudFunctionRequestSchema()
+            new ObjectSchema(true)
                 .withOptionalProperty("body",
                     new ObjectSchema(true)
                         .withOptionalProperty("dummy_id", TypeCode.String)
@@ -112,7 +111,7 @@ export class DummyCloudFunctionService extends CloudFunctionService {
 
         this.registerAction(
             'create_dummy',
-            new CloudFunctionRequestSchema()
+            new ObjectSchema(true)
                 .withOptionalProperty("body",
                     new ObjectSchema(true)
                         .withRequiredProperty("dummy", new DummySchema())
@@ -121,7 +120,7 @@ export class DummyCloudFunctionService extends CloudFunctionService {
 
         this.registerAction(
             'update_dummy',
-            new CloudFunctionRequestSchema()
+            new ObjectSchema(true)
                 .withOptionalProperty("body",
                     new ObjectSchema(true)
                         .withRequiredProperty("dummy", new DummySchema())
@@ -130,7 +129,7 @@ export class DummyCloudFunctionService extends CloudFunctionService {
 
         this.registerAction(
             'delete_dummy',
-            new CloudFunctionRequestSchema()
+            new ObjectSchema(true)
                 .withOptionalProperty("body",
                     new ObjectSchema(true)
                         .withOptionalProperty("dummy_id", TypeCode.String)

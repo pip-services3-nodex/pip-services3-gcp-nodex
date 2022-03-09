@@ -13,7 +13,7 @@ import { Container } from 'pip-services3-container-nodex';
 import { CompositeCounters } from 'pip-services3-components-nodex';
 import { ConsoleLogger } from 'pip-services3-components-nodex';
 import { CompositeTracer } from 'pip-services3-components-nodex';
-import { InstrumentTiming } from 'pip-services3-rpc-nodex';
+import { HttpResponseSender, InstrumentTiming } from 'pip-services3-rpc-nodex';
 
 import { CloudFunctionRequestHelper } from './CloudFunctionRequestHelper';
 import { ICloudFunctionService } from '../services/ICloudFunctionService';
@@ -247,10 +247,11 @@ export abstract class CloudFunction extends Container {
         const actionCurl = async (req: Request, res: Response) => {
             // Perform validation
             if (schema != null) {
+                let params = Object.assign({}, req.params, req.query, { body: req.body });
                 let correlationId = this.getCorrelationId(req);
-                let err = schema.validateAndReturnException(correlationId, req.body, false);
+                let err = schema.validateAndReturnException(correlationId, params, false);
                 if (err != null) {
-                    throw err;
+                    HttpResponseSender.sendError(req, res, err);
                 }
             }
 

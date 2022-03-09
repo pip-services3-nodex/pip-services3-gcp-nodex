@@ -73,16 +73,21 @@ class DummyCloudFunction extends CloudFunction_1.CloudFunction {
     }
     register() {
         this.registerAction('get_dummies', new pip_services3_commons_nodex_4.ObjectSchema(true)
+            .withOptionalProperty('body', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("filter", new pip_services3_commons_nodex_6.FilterParamsSchema())
-            .withOptionalProperty("paging", new pip_services3_commons_nodex_7.PagingParamsSchema()), this.getPageByFilter);
+            .withOptionalProperty("paging", new pip_services3_commons_nodex_7.PagingParamsSchema())), this.getPageByFilter);
         this.registerAction('get_dummy_by_id', new pip_services3_commons_nodex_4.ObjectSchema(true)
-            .withOptionalProperty("dummy_id", pip_services3_commons_nodex_5.TypeCode.String), this.getOneById);
+            .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
+            .withOptionalProperty("dummy_id", pip_services3_commons_nodex_5.TypeCode.String)), this.getOneById);
         this.registerAction('create_dummy', new pip_services3_commons_nodex_4.ObjectSchema(true)
-            .withRequiredProperty("dummy", new DummySchema_1.DummySchema()), this.create);
+            .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
+            .withRequiredProperty("dummy", new DummySchema_1.DummySchema())), this.create);
         this.registerAction('update_dummy', new pip_services3_commons_nodex_4.ObjectSchema(true)
-            .withRequiredProperty("dummy", new DummySchema_1.DummySchema()), this.update);
+            .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
+            .withRequiredProperty("dummy", new DummySchema_1.DummySchema())), this.update);
         this.registerAction('delete_dummy', new pip_services3_commons_nodex_4.ObjectSchema(true)
-            .withOptionalProperty("dummy_id", pip_services3_commons_nodex_5.TypeCode.String), this.deleteById);
+            .withOptionalProperty("body", new pip_services3_commons_nodex_4.ObjectSchema(true)
+            .withOptionalProperty("dummy_id", pip_services3_commons_nodex_5.TypeCode.String)), this.deleteById);
     }
 }
 exports.DummyCloudFunction = DummyCloudFunction;
