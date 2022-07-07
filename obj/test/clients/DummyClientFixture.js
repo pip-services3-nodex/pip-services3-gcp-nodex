@@ -23,7 +23,7 @@ class DummyClientFixture {
     }
     startCloudServiceLocally() {
         return __awaiter(this, void 0, void 0, function* () {
-            let ff = (0, child_process_1.exec)(`npx functions-framework --target=${this.functionName} --signature-type=http --port=${this.port} --source=test/services`);
+            let ff = child_process_1.exec(`npx functions-framework --target=${this.functionName} --signature-type=http --port=${this.port} --source=test/services`);
             yield waitPort({ host: 'localhost', port: this.port });
             this.process = ff;
             yield new Promise((resolve, reject) => {

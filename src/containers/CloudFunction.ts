@@ -93,7 +93,7 @@ export abstract class CloudFunction extends Container {
         return process.env.CONFIG_PATH || this._configPath;
     }
 
-    private getParameters(): ConfigParams {
+    private getConfigParameters(): ConfigParams {
         return ConfigParams.fromValue(process.env);
     }
 
@@ -176,7 +176,7 @@ export abstract class CloudFunction extends Container {
         let correlationId = this._info.name;
 
         let path = this.getConfigPath();
-        let parameters = this.getParameters();
+        let parameters = this.getConfigParameters();
         this.readConfigFromFile(correlationId, path, parameters);
 
         this.captureErrors(correlationId);

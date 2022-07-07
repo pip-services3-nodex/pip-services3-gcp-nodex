@@ -58,7 +58,7 @@ export declare abstract class CommandableCloudFunctionService extends CloudFunct
      * @param req -  Google Function request
      * @return Returns Parameters from request
      */
-    protected getParametrs(req: any): Parameters;
+    protected getParameters(req: any): Parameters;
     /**
      * Registers all actions in Google Function.
      */

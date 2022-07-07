@@ -7,7 +7,6 @@ let commandableFunctionService = null;
 exports.commandableHandler = async (req, res) => {
     let config = ConfigParams.fromTuples(
         'logger.descriptor', 'pip-services:logger:console:default:1.0',
-        'controller.descriptor', 'pip-services-dummies:controller:default:default:1.0',
         'service.descriptor', 'pip-services-dummies:service:commandable-gcp-function:default:1.0'
     );
     
@@ -28,7 +27,6 @@ let functionService = null;
 exports.handler = async (req, res) => {
     let config = ConfigParams.fromTuples(
         'logger.descriptor', 'pip-services:logger:console:default:1.0',
-        'controller.descriptor', 'pip-services-dummies:controller:default:default:1.0',
         'service.descriptor', 'pip-services-dummies:service:gcp-function:default:1.0'
     );
 

@@ -70,8 +70,8 @@ export abstract class CommandableCloudFunctionService extends CloudFunctionServi
      * @param req -  Google Function request
      * @return Returns Parameters from request
      */
-    protected getParametrs(req: any): Parameters {
-        return CloudFunctionRequestHelper.getParametrs(req);
+    protected getParameters(req: any): Parameters {
+        return CloudFunctionRequestHelper.getParameters(req);
     }
 
     /**
@@ -88,7 +88,7 @@ export abstract class CommandableCloudFunctionService extends CloudFunctionServi
 
             this.registerAction(name, null, async (req, res) => {
                 let correlationId = this.getCorrelationId(req);
-                let args = this.getParametrs(req);
+                let args = this.getParameters(req);
                 args.remove("correlation_id");
 
                 let timing = this.instrument(correlationId, name);
