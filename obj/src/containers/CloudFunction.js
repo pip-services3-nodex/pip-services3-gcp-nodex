@@ -262,8 +262,8 @@ class CloudFunction extends pip_services3_container_nodex_1.Container {
      * This method can be overloaded in child classes
      * if they need to change the default behavior
      *
-     * @param req the request to function
-     * @param res the result of the function execution
+     * @param req the function request
+     * @param res the function response
      * @returns the promise.
      */
     execute(req, res) {
@@ -278,18 +278,18 @@ class CloudFunction extends pip_services3_container_nodex_1.Container {
                 throw new pip_services3_commons_nodex_1.BadRequestException(correlationId, 'NO_ACTION', 'Action ' + cmd + ' was not found')
                     .withDetails('command', cmd);
             }
-            return action(req, res);
+            return yield action(req, res);
         });
     }
     handler(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             // If already started then execute
             if (this.isOpen()) {
-                return this.execute(req, res);
+                return yield this.execute(req, res);
             }
             // Start before execute
             yield this.run();
-            return this.execute(req, res);
+            return yield this.execute(req, res);
         });
     }
     /**

@@ -287,8 +287,8 @@ export abstract class CloudFunction extends Container {
      * This method can be overloaded in child classes
      * if they need to change the default behavior
      * 
-     * @param req the request to function
-     * @param res the result of the function execution 
+     * @param req the function request
+     * @param res the function response
      * @returns the promise.
      */
     protected async execute(req: Request, res: Response): Promise<any> {
@@ -312,17 +312,17 @@ export abstract class CloudFunction extends Container {
             .withDetails('command', cmd);
         }
         
-        return action(req, res);
+        return await action(req, res);
     }
     
     private async handler(req: Request, res: Response): Promise<any> {
         // If already started then execute
         if (this.isOpen()) {
-            return this.execute(req, res);
+            return await this.execute(req, res);
         }
         // Start before execute
         await this.run();
-        return this.execute(req, res);
+        return await this.execute(req, res);
     }
     
     /**

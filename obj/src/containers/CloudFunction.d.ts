@@ -146,8 +146,8 @@ export declare abstract class CloudFunction extends Container {
      * This method can be overloaded in child classes
      * if they need to change the default behavior
      *
-     * @param req the request to function
-     * @param res the result of the function execution
+     * @param req the function request
+     * @param res the function response
      * @returns the promise.
      */
     protected execute(req: Request, res: Response): Promise<any>;
