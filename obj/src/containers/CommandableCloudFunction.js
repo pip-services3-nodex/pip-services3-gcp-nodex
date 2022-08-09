@@ -67,8 +67,8 @@ class CommandableCloudFunction extends CloudFunction_1.CloudFunction {
      * @param req -  Googl Function request
      * @return Returns Parameters from request
      */
-    getParametrs(req) {
-        return CloudFunctionRequestHelper_1.CloudFunctionRequestHelper.getParametrs(req);
+    getParameters(req) {
+        return CloudFunctionRequestHelper_1.CloudFunctionRequestHelper.getParameters(req);
     }
     registerCommandSet(commandSet) {
         let commands = commandSet.getCommands();
@@ -76,7 +76,7 @@ class CommandableCloudFunction extends CloudFunction_1.CloudFunction {
             let command = commands[index];
             this.registerAction(command.getName(), null, (req, res) => __awaiter(this, void 0, void 0, function* () {
                 let correlationId = this.getCorrelationId(req);
-                let args = this.getParametrs(req);
+                let args = this.getParameters(req);
                 let timing = this.instrument(correlationId, this._info.name + '.' + command.getName());
                 try {
                     const result = yield command.execute(correlationId, args);

@@ -93,7 +93,7 @@ class CloudFunction extends pip_services3_container_nodex_1.Container {
     getConfigPath() {
         return process.env.CONFIG_PATH || this._configPath;
     }
-    getParameters() {
+    getConfigParameters() {
         return pip_services3_commons_nodex_2.ConfigParams.fromValue(process.env);
     }
     captureErrors(correlationId) {
@@ -169,7 +169,7 @@ class CloudFunction extends pip_services3_container_nodex_1.Container {
         return __awaiter(this, void 0, void 0, function* () {
             let correlationId = this._info.name;
             let path = this.getConfigPath();
-            let parameters = this.getParameters();
+            let parameters = this.getConfigParameters();
             this.readConfigFromFile(correlationId, path, parameters);
             this.captureErrors(correlationId);
             this.captureExit(correlationId);

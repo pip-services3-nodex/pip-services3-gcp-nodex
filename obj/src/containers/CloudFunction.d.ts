@@ -74,7 +74,7 @@ export declare abstract class CloudFunction extends Container {
      */
     constructor(name?: string, description?: string);
     private getConfigPath;
-    private getParameters;
+    private getConfigParameters;
     private captureErrors;
     private captureExit;
     /**

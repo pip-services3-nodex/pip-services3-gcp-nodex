@@ -21,5 +21,5 @@ export declare class CloudFunctionRequestHelper {
      * @param req the Google Function request
      * @return returns body from request
      */
-    static getParametrs(req: any): Parameters;
+    static getParameters(req: any): Parameters;
 }

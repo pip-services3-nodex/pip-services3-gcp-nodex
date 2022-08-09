@@ -63,8 +63,8 @@ export abstract class CommandableCloudFunction extends CloudFunction {
      * @param req -  Googl Function request
      * @return Returns Parameters from request
      */
-    protected getParametrs(req: any): Parameters {
-        return CloudFunctionRequestHelper.getParametrs(req);
+    protected getParameters(req: any): Parameters {
+        return CloudFunctionRequestHelper.getParameters(req);
     }
 
     private registerCommandSet(commandSet: CommandSet) {
@@ -74,7 +74,7 @@ export abstract class CommandableCloudFunction extends CloudFunction {
 
             this.registerAction(command.getName(), null, async (req, res) => {
                 let correlationId = this.getCorrelationId(req);
-                let args = this.getParametrs(req);
+                let args = this.getParameters(req);
                 let timing = this.instrument(correlationId, this._info.name + '.' + command.getName());
 
                 try {

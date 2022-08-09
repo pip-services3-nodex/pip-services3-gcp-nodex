@@ -51,7 +51,7 @@ export class CloudFunctionRequestHelper {
      * @param req the Google Function request
      * @return returns body from request
      */
-    public static getParametrs(req: any): Parameters {
+    public static getParameters(req: any): Parameters {
         let body: any = req;
         try {
             if (req.hasOwnProperty('body')) {

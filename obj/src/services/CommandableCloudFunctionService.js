@@ -73,8 +73,8 @@ class CommandableCloudFunctionService extends CloudFunctionService_1.CloudFuncti
      * @param req -  Google Function request
      * @return Returns Parameters from request
      */
-    getParametrs(req) {
-        return CloudFunctionRequestHelper_1.CloudFunctionRequestHelper.getParametrs(req);
+    getParameters(req) {
+        return CloudFunctionRequestHelper_1.CloudFunctionRequestHelper.getParameters(req);
     }
     /**
      * Registers all actions in Google Function.
@@ -88,7 +88,7 @@ class CommandableCloudFunctionService extends CloudFunctionService_1.CloudFuncti
             let name = command.getName();
             this.registerAction(name, null, (req, res) => __awaiter(this, void 0, void 0, function* () {
                 let correlationId = this.getCorrelationId(req);
-                let args = this.getParametrs(req);
+                let args = this.getParameters(req);
                 args.remove("correlation_id");
                 let timing = this.instrument(correlationId, name);
                 try {
