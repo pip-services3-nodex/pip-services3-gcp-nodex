@@ -83,7 +83,7 @@ export abstract class CommandableCloudFunction extends CloudFunction {
                     HttpResponseSender.sendResult(req, res, result);
                 } catch (err) {
                     timing.endTiming(err);
-                    throw err;
+                    HttpResponseSender.sendError(req, res, err);
                 }
             });
         }

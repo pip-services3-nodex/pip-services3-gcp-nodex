@@ -28,7 +28,7 @@ class DummyCloudFunctionFixture {
     }
     startCloudServiceLocally() {
         return __awaiter(this, void 0, void 0, function* () {
-            let ff = child_process_1.exec(`npx functions-framework --target=${this.functionName} --signature-type=http --port=${this.port} --source=test/containers`);
+            let ff = (0, child_process_1.exec)(`npx functions-framework --target=${this.functionName} --signature-type=http --port=${this.port} --source=test/containers`);
             yield waitPort({ host: 'localhost', port: this.port });
             this.process = ff;
             yield new Promise((resolve, reject) => {
@@ -52,7 +52,7 @@ class DummyCloudFunctionFixture {
             let response = yield new Promise((resolve, reject) => {
                 this.rest.post('/' + this.functionName, data, (err, req, res, entity) => {
                     if (err != null) {
-                        reject(err);
+                        resolve(err);
                         return;
                     }
                     resolve(Object.keys(entity).length > 0 ? entity : null);
@@ -107,11 +107,11 @@ class DummyCloudFunctionFixture {
             });
             assert.isNull(dummy || null);
             // Failed validation
-            // let err = await this.httpInvoke({
-            //     cmd: 'create_dummy',
-            //     dummy: null
-            // })
-            // assert.equal(err.restCode, 'INVALID_DATA');
+            let err = yield this.httpInvoke({
+                cmd: 'create_dummy',
+                dummy: null
+            });
+            assert.equal(err.restCode, 'INVALID_DATA');
         });
     }
 }

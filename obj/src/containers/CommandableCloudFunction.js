@@ -85,7 +85,7 @@ class CommandableCloudFunction extends CloudFunction_1.CloudFunction {
                 }
                 catch (err) {
                     timing.endTiming(err);
-                    throw err;
+                    pip_services3_rpc_nodex_1.HttpResponseSender.sendError(req, res, err);
                 }
             }));
         }

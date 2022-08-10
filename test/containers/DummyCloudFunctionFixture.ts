@@ -54,7 +54,7 @@ export class DummyCloudFunctionFixture {
                 data,
                 (err, req, res, entity) => {
                     if (err != null) {
-                        reject(err);
+                        resolve(err);
                         return;
                     }
                     resolve(Object.keys(entity).length > 0 ? entity : null);
@@ -118,11 +118,11 @@ export class DummyCloudFunctionFixture {
 
 
         // Failed validation
-        // let err = await this.httpInvoke({
-        //     cmd: 'create_dummy',
-        //     dummy: null
-        // })
+        let err = await this.httpInvoke({
+            cmd: 'create_dummy',
+            dummy: null
+        })
 
-        // assert.equal(err.restCode, 'INVALID_DATA');
+        assert.equal(err.restCode, 'INVALID_DATA');
     }
 }
