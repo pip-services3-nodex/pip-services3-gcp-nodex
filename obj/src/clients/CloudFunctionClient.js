@@ -274,5 +274,5 @@ class CloudFunctionClient {
     }
 }
 exports.CloudFunctionClient = CloudFunctionClient;
-CloudFunctionClient._defaultConfig = pip_services3_commons_nodex_3.ConfigParams.fromTuples("connection.protocol", "http", "connection.host", "0.0.0.0", "connection.port", 3000, "options.connect_timeout", 10000, "options.timeout", 10000, "options.retries", 3);
+CloudFunctionClient._defaultConfig = pip_services3_commons_nodex_3.ConfigParams.fromTuples("options.connect_timeout", 10000, "options.timeout", 10000, "options.retries", 3);
 //# sourceMappingURL=CloudFunctionClient.js.map

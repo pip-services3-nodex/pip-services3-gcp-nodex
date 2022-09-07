@@ -81,10 +81,6 @@ import { GcpConnectionResolver } from '../connect/GcpConnectionResolver';
  */
 export abstract class CloudFunctionClient implements IOpenable, IConfigurable, IReferenceable {
     private static readonly _defaultConfig: ConfigParams = ConfigParams.fromTuples(
-        "connection.protocol", "http",
-        "connection.host", "0.0.0.0",
-        "connection.port", 3000,
-
         "options.connect_timeout", 10000,
         "options.timeout", 10000,
         "options.retries", 3,
