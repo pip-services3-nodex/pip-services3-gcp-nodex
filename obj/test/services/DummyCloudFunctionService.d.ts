@@ -6,7 +6,6 @@ export declare class DummyCloudFunctionService extends CloudFunctionService {
     private numberOfCalls;
     constructor();
     setReferences(references: IReferences): void;
-    private incrementNumberOfCalls;
     private getNumberOfCalls;
     private getPageByFilter;
     private getOneById;

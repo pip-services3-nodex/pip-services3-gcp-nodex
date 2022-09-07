@@ -32,11 +32,6 @@ export class DummyCloudFunctionService extends CloudFunctionService {
         this._controller = this._dependencyResolver.getOneRequired<IDummyController>('controller');
     }
 
-    private incrementNumberOfCalls(req: any, res: any, next: (req: any, res: any) => void): void {
-        this.numberOfCalls++;
-        next(req, res);
-    }
-
     private async getNumberOfCalls(req: any, res: any): Promise<any> {
         HttpResponseSender.sendResult(req, res, this.numberOfCalls.toString())
     }
@@ -103,9 +98,6 @@ export class DummyCloudFunctionService extends CloudFunctionService {
     }
 
     protected register() {
-        this.registerInterceptor(
-            "dummies\\..+", this.incrementNumberOfCalls
-        )
 
         this.registerAction(
             "number_of_calls",

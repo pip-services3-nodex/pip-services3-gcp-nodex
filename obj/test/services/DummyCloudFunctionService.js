@@ -33,10 +33,6 @@ class DummyCloudFunctionService extends CloudFunctionService_1.CloudFunctionServ
         super.setReferences(references);
         this._controller = this._dependencyResolver.getOneRequired('controller');
     }
-    incrementNumberOfCalls(req, res, next) {
-        this.numberOfCalls++;
-        next(req, res);
-    }
     getNumberOfCalls(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             pip_services3_rpc_nodex_1.HttpResponseSender.sendResult(req, res, this.numberOfCalls.toString());
@@ -88,7 +84,6 @@ class DummyCloudFunctionService extends CloudFunctionService_1.CloudFunctionServ
         });
     }
     register() {
-        this.registerInterceptor("dummies\\..+", this.incrementNumberOfCalls);
         this.registerAction("number_of_calls", null, this.getNumberOfCalls);
         this.registerAction('get_dummies', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty('body', new pip_services3_commons_nodex_4.ObjectSchema(true)
