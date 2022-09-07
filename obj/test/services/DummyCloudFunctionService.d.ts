@@ -3,10 +3,8 @@ import { CloudFunctionService } from '../../src/services/CloudFunctionService';
 export declare class DummyCloudFunctionService extends CloudFunctionService {
     private _controller;
     private _headers;
-    private numberOfCalls;
     constructor();
     setReferences(references: IReferences): void;
-    private getNumberOfCalls;
     private getPageByFilter;
     private getOneById;
     private create;
