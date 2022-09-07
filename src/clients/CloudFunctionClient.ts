@@ -80,12 +80,6 @@ import { GcpConnectionResolver } from '../connect/GcpConnectionResolver';
  *     const result = await client.getData("123", "1");
  */
 export abstract class CloudFunctionClient implements IOpenable, IConfigurable, IReferenceable {
-    private static readonly _defaultConfig: ConfigParams = ConfigParams.fromTuples(
-        "options.connect_timeout", 10000,
-        "options.timeout", 10000,
-        "options.retries", 3,
-    );
-
     /**
      * The HTTP client.
      */
@@ -95,7 +89,7 @@ export abstract class CloudFunctionClient implements IOpenable, IConfigurable, I
      */
     protected _connection: GcpConnectionParams;
 
-    protected _retries: number = 1;
+    protected _retries: number = 3;
     /**
      * The default headers to be added to every request.
      */

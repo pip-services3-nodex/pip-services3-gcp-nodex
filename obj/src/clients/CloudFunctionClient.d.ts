@@ -72,7 +72,6 @@ import { GcpConnectionResolver } from '../connect/GcpConnectionResolver';
  *     const result = await client.getData("123", "1");
  */
 export declare abstract class CloudFunctionClient implements IOpenable, IConfigurable, IReferenceable {
-    private static readonly _defaultConfig;
     /**
      * The HTTP client.
      */

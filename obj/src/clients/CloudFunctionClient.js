@@ -15,7 +15,6 @@ const pip_services3_commons_nodex_2 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_3 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_4 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_5 = require("pip-services3-commons-nodex");
-const pip_services3_commons_nodex_6 = require("pip-services3-commons-nodex");
 const pip_services3_components_nodex_1 = require("pip-services3-components-nodex");
 const pip_services3_components_nodex_2 = require("pip-services3-components-nodex");
 const pip_services3_components_nodex_3 = require("pip-services3-components-nodex");
@@ -83,7 +82,7 @@ const GcpConnectionResolver_1 = require("../connect/GcpConnectionResolver");
  */
 class CloudFunctionClient {
     constructor() {
-        this._retries = 1;
+        this._retries = 3;
         /**
          * The default headers to be added to every request.
          */
@@ -99,7 +98,7 @@ class CloudFunctionClient {
         /**
          * The dependencies resolver.
          */
-        this._dependencyResolver = new pip_services3_commons_nodex_6.DependencyResolver();
+        this._dependencyResolver = new pip_services3_commons_nodex_5.DependencyResolver();
         /**
          * The connection resolver.
          */
@@ -236,11 +235,11 @@ class CloudFunctionClient {
     invoke(cmd, correlationId, args) {
         return __awaiter(this, void 0, void 0, function* () {
             if (cmd == null) {
-                throw new pip_services3_commons_nodex_5.UnknownException(correlationId, 'NO_COMMAND', 'Missing command');
+                throw new pip_services3_commons_nodex_4.UnknownException(correlationId, 'NO_COMMAND', 'Missing command');
             }
             args = Object.assign({}, args);
             args.cmd = cmd;
-            args.correlation_id = correlationId || pip_services3_commons_nodex_4.IdGenerator.nextShort();
+            args.correlation_id = correlationId || pip_services3_commons_nodex_3.IdGenerator.nextShort();
             return new Promise((resolve, reject) => {
                 let action = (err, req, res, data) => {
                     // Handling 204 codes
@@ -274,5 +273,4 @@ class CloudFunctionClient {
     }
 }
 exports.CloudFunctionClient = CloudFunctionClient;
-CloudFunctionClient._defaultConfig = pip_services3_commons_nodex_3.ConfigParams.fromTuples("options.connect_timeout", 10000, "options.timeout", 10000, "options.retries", 3);
 //# sourceMappingURL=CloudFunctionClient.js.map
