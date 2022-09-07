@@ -168,7 +168,7 @@ export declare abstract class CloudFunctionService implements ICloudFunctionServ
      *
      * @param action an action function that is called when middleware is invoked.
      */
-    protected registerInterceptor(action: (req: Request, res: Response, next: (req: Request, res: Response) => Promise<any>) => Promise<any>): void;
+    protected registerInterceptor(cmd: string, action: (req: Request, res: Response, next: (req: Request, res: Response) => void) => void): void;
     /**
      * Registers all service routes in HTTP endpoint.
      *

@@ -41,7 +41,7 @@ const pip_services3_rpc_nodex_1 = require("pip-services3-rpc-nodex");
  *
  *     class MyCommandableCloudFunctionService extends CommandableCloudFunctionService {
  *        public constructor() {
- *           base();
+ *           base("mydata");
  *           this._dependencyResolver.put(
  *               "controller",
  *               new Descriptor("mygroup","controller","*","*","1.0")
@@ -94,13 +94,11 @@ class CommandableCloudFunctionService extends CloudFunctionService_1.CloudFuncti
                 try {
                     const result = yield command.execute(correlationId, args);
                     pip_services3_rpc_nodex_1.HttpResponseSender.sendResult(req, res, result);
+                    timing.endTiming();
                 }
                 catch (ex) {
                     timing.endFailure(ex);
                     pip_services3_rpc_nodex_1.HttpResponseSender.sendError(req, res, ex);
-                }
-                finally {
-                    timing.endTiming();
                 }
             }));
         }

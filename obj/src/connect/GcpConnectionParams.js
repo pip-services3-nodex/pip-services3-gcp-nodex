@@ -43,10 +43,10 @@ const pip_services3_components_nodex_2 = require("pip-services3-components-nodex
  *         'credential.auth_token', '1234',
  *     );
  *
- *     const uri = connection.getFunctionUri();             // Result: 'http://east-my_test_project.cloudfunctions.net/myfunction'
+ *     const uri = connection.getUri();             // Result: 'http://east-my_test_project.cloudfunctions.net/myfunction'
  *     const region = connection.getRegion();               // Result: 'east'
  *     const protocol = connection.getProtocol();           // Result: 'http'
- *     const functionName = connection.getFunctionName();   // Result: 'myfunction'
+ *     const functionName = connection.getFunction();   // Result: 'myfunction'
  *     const projectId = connection.getProjectId();         // Result: 'my_test_project'
  *     const authToken = connection.getAuthToken();         // Result: '123'
  */

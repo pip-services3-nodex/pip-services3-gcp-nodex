@@ -18,14 +18,27 @@ export class DummyCloudFunctionService extends CloudFunctionService {
         'Content-Type': 'application/json'
     };
 
+    private numberOfCalls: number;
+
     public constructor() {
         super("dummies");
         this._dependencyResolver.put('controller', new Descriptor('pip-services-dummies', 'controller', 'default', '*', '*'));
+
+        this.numberOfCalls = 0;
     }
 
     public setReferences(references: IReferences): void {
         super.setReferences(references);
         this._controller = this._dependencyResolver.getOneRequired<IDummyController>('controller');
+    }
+
+    private incrementNumberOfCalls(req: any, res: any, next: (req: any, res: any) => void): void {
+        this.numberOfCalls++;
+        next(req, res);
+    }
+
+    private async getNumberOfCalls(req: any, res: any): Promise<any> {
+        HttpResponseSender.sendResult(req, res, this.numberOfCalls.toString())
     }
 
     private async getPageByFilter(req: any, res: any): Promise<any> {
@@ -90,6 +103,16 @@ export class DummyCloudFunctionService extends CloudFunctionService {
     }
 
     protected register() {
+        this.registerInterceptor(
+            "dummies\\..+", this.incrementNumberOfCalls
+        )
+
+        this.registerAction(
+            "number_of_calls",
+            null,
+            this.getNumberOfCalls,
+        )
+
         this.registerAction(
             'get_dummies',
             new ObjectSchema(true)

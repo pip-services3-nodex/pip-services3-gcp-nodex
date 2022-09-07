@@ -13,11 +13,11 @@ The module contains the following packages:
 
 <a name="links"></a> Quick links:
 
-* [Configuration](https://www.pipservices.org/recipies/configuration)
+* [Configuration](http://docs.pipservices.org/conceptual/configuration/)
 * [API Reference](https://pip-services3-nodex.github.io/pip-services3-gcp-nodex/globals.html)
 * [Change Log](CHANGELOG.md)
-* [Get Help](https://www.pipservices.org/community/help)
-* [Contribute](https://www.pipservices.org/community/contribute)
+* [Get Help](http://docs.pipservices.org/get_help/)
+* [Contribute](http://docs.pipservices.org/contribute/)
 
 ## Use
 

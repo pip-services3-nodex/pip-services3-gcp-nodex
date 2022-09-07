@@ -34,7 +34,10 @@ import { GcpConnectionResolver } from '../connect/GcpConnectionResolver';
  *      - region:        is the region where your function is deployed
  *      - function:      is the name of the HTTP function you deployed
  *      - org_id:        organization name
- * 
+ * - options:
+ *      - retries:               number of retries (default: 3)
+ *      - connect_timeout:       connection timeout in milliseconds (default: 10 sec)
+ *      - timeout:               invocation timeout in milliseconds (default: 10 sec)
  * - credentials:   
  *     - account: the service account name 
  *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)
@@ -77,6 +80,16 @@ import { GcpConnectionResolver } from '../connect/GcpConnectionResolver';
  *     const result = await client.getData("123", "1");
  */
 export abstract class CloudFunctionClient implements IOpenable, IConfigurable, IReferenceable {
+    private static readonly _defaultConfig: ConfigParams = ConfigParams.fromTuples(
+        "connection.protocol", "http",
+        "connection.host", "0.0.0.0",
+        "connection.port", 3000,
+
+        "options.connect_timeout", 10000,
+        "options.timeout", 10000,
+        "options.retries", 3,
+    );
+
     /**
      * The HTTP client.
      */
@@ -135,6 +148,10 @@ export abstract class CloudFunctionClient implements IOpenable, IConfigurable, I
 		this._dependencyResolver.configure(config);
 
         this._connectTimeout = config.getAsIntegerWithDefault('options.connect_timeout', this._connectTimeout);
+
+        this._retries = config.getAsIntegerWithDefault("options.retries", this._retries);
+        this._connectTimeout = config.getAsIntegerWithDefault("options.connect_timeout", this._connectTimeout);
+        this._timeout = config.getAsIntegerWithDefault("options.timeout", this._timeout);
     }
 
     /**
@@ -250,7 +267,7 @@ export abstract class CloudFunctionClient implements IOpenable, IConfigurable, I
      */
     protected async invoke<T>(cmd: string, correlationId: string, args: any): Promise<T> {
         if (cmd == null) {
-            throw new UnknownException(null, 'NO_COMMAND', 'Missing Seneca pattern cmd');
+            throw new UnknownException(correlationId, 'NO_COMMAND', 'Missing command');
         }
 
         args = Object.assign({}, args);

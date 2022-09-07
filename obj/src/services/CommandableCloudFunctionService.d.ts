@@ -28,7 +28,7 @@ import { CloudFunctionService } from './CloudFunctionService';
  *
  *     class MyCommandableCloudFunctionService extends CommandableCloudFunctionService {
  *        public constructor() {
- *           base();
+ *           base("mydata");
  *           this._dependencyResolver.put(
  *               "controller",
  *               new Descriptor("mygroup","controller","*","*","1.0")

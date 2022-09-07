@@ -76,8 +76,7 @@
 					other parameters are passed to the action itself.</p>
 					<h3 id="configuration-parameters">Configuration parameters</h3>
 					<ul>
-						<li><p>connections:</p>
-							<ul>
+						<li>connections:<ul>
 								<li>uri:           full connection uri with specific app and function name</li>
 								<li>protocol:      connection protocol</li>
 								<li>project_id:    is your Google Cloud Platform project ID</li>
@@ -86,8 +85,13 @@
 								<li>org_id:        organization name</li>
 							</ul>
 						</li>
-						<li><p>credentials:</p>
-							<ul>
+						<li>options:<ul>
+								<li>retries:               number of retries (default: 3)</li>
+								<li>connect_timeout:       connection timeout in milliseconds (default: 10 sec)</li>
+								<li>timeout:               invocation timeout in milliseconds (default: 10 sec)</li>
+							</ul>
+						</li>
+						<li>credentials:<ul>
 								<li>account: the service account name</li>
 								<li>auth_token:    Google-generated ID token or null if using custom auth (IAM)</li>
 							</ul>
@@ -201,7 +205,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:83</li>
+							<li>Defined in clients/CloudFunctionClient.ts:96</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -216,7 +220,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_connect<wbr>Timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:97</li>
+							<li>Defined in clients/CloudFunctionClient.ts:110</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -231,7 +235,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_connection<span class="tsd-signature-symbol">:</span> <a href="connect.gcpconnectionparams.html" class="tsd-signature-type">GcpConnectionParams</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:87</li>
+							<li>Defined in clients/CloudFunctionClient.ts:100</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +250,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_connection<wbr>Resolver<span class="tsd-signature-symbol">:</span> <a href="connect.gcpconnectionresolver.html" class="tsd-signature-type">GcpConnectionResolver</a><span class="tsd-signature-symbol"> =&nbsp;new GcpConnectionResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:114</li>
+							<li>Defined in clients/CloudFunctionClient.ts:127</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -261,7 +265,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_counters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeCounters</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeCounters()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:122</li>
+							<li>Defined in clients/CloudFunctionClient.ts:135</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -276,7 +280,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_dependency<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DependencyResolver</span><span class="tsd-signature-symbol"> =&nbsp;new DependencyResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:110</li>
+							<li>Defined in clients/CloudFunctionClient.ts:123</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -291,7 +295,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:93</li>
+							<li>Defined in clients/CloudFunctionClient.ts:106</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -306,7 +310,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeLogger</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeLogger()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:118</li>
+							<li>Defined in clients/CloudFunctionClient.ts:131</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -321,7 +325,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_retries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:89</li>
+							<li>Defined in clients/CloudFunctionClient.ts:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -331,7 +335,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:101</li>
+							<li>Defined in clients/CloudFunctionClient.ts:114</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -346,7 +350,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_tracer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeTracer</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeTracer()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:126</li>
+							<li>Defined in clients/CloudFunctionClient.ts:139</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -361,7 +365,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 					<div class="tsd-signature tsd-kind-icon">_uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:105</li>
+							<li>Defined in clients/CloudFunctionClient.ts:118</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -383,7 +387,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:288</li>
+									<li>Defined in clients/CloudFunctionClient.ts:305</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,7 +437,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:226</li>
+									<li>Defined in clients/CloudFunctionClient.ts:243</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,7 +468,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:133</li>
+									<li>Defined in clients/CloudFunctionClient.ts:146</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -495,7 +499,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:160</li>
+									<li>Defined in clients/CloudFunctionClient.ts:177</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -534,7 +538,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:251</li>
+									<li>Defined in clients/CloudFunctionClient.ts:268</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -584,7 +588,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:175</li>
+									<li>Defined in clients/CloudFunctionClient.ts:192</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -607,7 +611,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:185</li>
+									<li>Defined in clients/CloudFunctionClient.ts:202</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -638,7 +642,7 @@ const result = await client.getData(<span class="hljs-string">"123"</span>, <spa
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:145</li>
+									<li>Defined in clients/CloudFunctionClient.ts:162</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

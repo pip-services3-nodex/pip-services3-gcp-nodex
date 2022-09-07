@@ -293,8 +293,17 @@ export abstract class CloudFunctionService implements ICloudFunctionService, IOp
      * 
      * @param action an action function that is called when middleware is invoked.
      */
-    protected registerInterceptor(action: (req: Request, res: Response, next: (req: Request, res: Response) => Promise<any>) => Promise<any>): void {
-        this._interceptors.push(action);
+    protected registerInterceptor(cmd: string, action: (req: Request, res: Response, next: (req: Request, res: Response) => void) => void): void {
+        let self = this;
+        let interceptorWrapper = (req: Request, res: Response, next: () => void) => {
+            let currCmd = this.getCommand(req);
+            let match = (currCmd.match(cmd) || []).length > 0;
+            if (cmd != null && cmd != "" && !match)
+                next.call(self, req, res);
+            else action.call(self,req, res, next);
+        }
+
+        this._interceptors.push(interceptorWrapper);
     }
 
     /**

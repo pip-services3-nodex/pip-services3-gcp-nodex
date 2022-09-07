@@ -107,10 +107,10 @@
     <span class="hljs-string">'credential.auth_token'</span>, <span class="hljs-string">'1234'</span>,
 );
 
-<span class="hljs-keyword">const</span> uri = connection.getFunctionUri();             <span class="hljs-comment">// Result: 'http://east-my_test_project.cloudfunctions.net/myfunction'</span>
+<span class="hljs-keyword">const</span> uri = connection.getUri();             <span class="hljs-comment">// Result: 'http://east-my_test_project.cloudfunctions.net/myfunction'</span>
 <span class="hljs-keyword">const</span> region = connection.getRegion();               <span class="hljs-comment">// Result: 'east'</span>
 <span class="hljs-keyword">const</span> protocol = connection.getProtocol();           <span class="hljs-comment">// Result: 'http'</span>
-<span class="hljs-keyword">const</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Name</span> = <span class="hljs-title">connection</span>.<span class="hljs-title">getFunctionName</span>(<span class="hljs-params"></span>)</span>;   <span class="hljs-comment">// Result: 'myfunction'</span>
+<span class="hljs-keyword">const</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Name</span> = <span class="hljs-title">connection</span>.<span class="hljs-title">getFunction</span>(<span class="hljs-params"></span>)</span>;   <span class="hljs-comment">// Result: 'myfunction'</span>
 <span class="hljs-keyword">const</span> projectId = connection.getProjectId();         <span class="hljs-comment">// Result: 'my_test_project'</span>
 <span class="hljs-keyword">const</span> authToken = connection.getAuthToken();         <span class="hljs-comment">// Result: '123'</span>
 </code></pre></dd>

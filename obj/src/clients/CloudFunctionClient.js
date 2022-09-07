@@ -15,6 +15,7 @@ const pip_services3_commons_nodex_2 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_3 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_4 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_5 = require("pip-services3-commons-nodex");
+const pip_services3_commons_nodex_6 = require("pip-services3-commons-nodex");
 const pip_services3_components_nodex_1 = require("pip-services3-components-nodex");
 const pip_services3_components_nodex_2 = require("pip-services3-components-nodex");
 const pip_services3_components_nodex_3 = require("pip-services3-components-nodex");
@@ -35,7 +36,10 @@ const GcpConnectionResolver_1 = require("../connect/GcpConnectionResolver");
  *      - region:        is the region where your function is deployed
  *      - function:      is the name of the HTTP function you deployed
  *      - org_id:        organization name
- *
+ * - options:
+ *      - retries:               number of retries (default: 3)
+ *      - connect_timeout:       connection timeout in milliseconds (default: 10 sec)
+ *      - timeout:               invocation timeout in milliseconds (default: 10 sec)
  * - credentials:
  *     - account: the service account name
  *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)
@@ -95,7 +99,7 @@ class CloudFunctionClient {
         /**
          * The dependencies resolver.
          */
-        this._dependencyResolver = new pip_services3_commons_nodex_5.DependencyResolver();
+        this._dependencyResolver = new pip_services3_commons_nodex_6.DependencyResolver();
         /**
          * The connection resolver.
          */
@@ -122,6 +126,9 @@ class CloudFunctionClient {
         this._connectionResolver.configure(config);
         this._dependencyResolver.configure(config);
         this._connectTimeout = config.getAsIntegerWithDefault('options.connect_timeout', this._connectTimeout);
+        this._retries = config.getAsIntegerWithDefault("options.retries", this._retries);
+        this._connectTimeout = config.getAsIntegerWithDefault("options.connect_timeout", this._connectTimeout);
+        this._timeout = config.getAsIntegerWithDefault("options.timeout", this._timeout);
     }
     /**
      * Sets references to dependent components.
@@ -229,11 +236,11 @@ class CloudFunctionClient {
     invoke(cmd, correlationId, args) {
         return __awaiter(this, void 0, void 0, function* () {
             if (cmd == null) {
-                throw new pip_services3_commons_nodex_4.UnknownException(null, 'NO_COMMAND', 'Missing Seneca pattern cmd');
+                throw new pip_services3_commons_nodex_5.UnknownException(correlationId, 'NO_COMMAND', 'Missing command');
             }
             args = Object.assign({}, args);
             args.cmd = cmd;
-            args.correlation_id = correlationId || pip_services3_commons_nodex_3.IdGenerator.nextShort();
+            args.correlation_id = correlationId || pip_services3_commons_nodex_4.IdGenerator.nextShort();
             return new Promise((resolve, reject) => {
                 let action = (err, req, res, data) => {
                     // Handling 204 codes
@@ -267,4 +274,5 @@ class CloudFunctionClient {
     }
 }
 exports.CloudFunctionClient = CloudFunctionClient;
+CloudFunctionClient._defaultConfig = pip_services3_commons_nodex_3.ConfigParams.fromTuples("connection.protocol", "http", "connection.host", "0.0.0.0", "connection.port", 3000, "options.connect_timeout", 10000, "options.timeout", 10000, "options.retries", 3);
 //# sourceMappingURL=CloudFunctionClient.js.map

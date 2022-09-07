@@ -15,7 +15,10 @@ import { CloudFunctionClient } from './CloudFunctionClient';
  *      - region:        is the region where your function is deployed
  *      - function:      is the name of the HTTP function you deployed
  *      - org_id:        organization name
- *
+ * - options:
+ *      - retries:               number of retries (default: 3)
+ *      - connect_timeout:       connection timeout in milliseconds (default: 10 sec)
+ *      - timeout:               invocation timeout in milliseconds (default: 10 sec)
  * - credentials:
  *     - account: the service account name
  *     - auth_token:    Google-generated ID token or null if using custom auth (IAM)

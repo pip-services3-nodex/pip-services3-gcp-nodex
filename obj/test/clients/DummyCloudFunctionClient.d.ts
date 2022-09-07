@@ -4,9 +4,6 @@ import { DataPage } from 'pip-services3-commons-nodex';
 import { CloudFunctionClient } from '../../src/clients/CloudFunctionClient';
 import { IDummyClient } from '../IDummyClient';
 import { Dummy } from '../Dummy';
-export interface DummyCloudFunctionClientResponse {
-    body?: any;
-}
 export declare class DummyCloudFunctionClient extends CloudFunctionClient implements IDummyClient {
     constructor();
     getDummies(correlationId: string, filter: FilterParams, paging: PagingParams): Promise<DataPage<Dummy>>;

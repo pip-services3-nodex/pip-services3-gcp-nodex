@@ -295,21 +295,26 @@ export abstract class CloudFunction extends Container {
         let cmd: string = this.getCommand(req);
         let correlationId = this.getCorrelationId(req);
         if (cmd == null) {
-            throw new BadRequestException(
-                correlationId, 
-                'NO_COMMAND', 
-                'Cmd parameter is missing'
+            HttpResponseSender.sendError(req, res,
+                new BadRequestException(
+                    correlationId,
+                    'NO_COMMAND',
+                    'Cmd parameter is missing'
+                )
             );
+            return;
         }
         
         const action: any = this._actions[cmd];
         if (action == null) {
-            throw new BadRequestException(
-                correlationId, 
-                'NO_ACTION', 
-                'Action ' + cmd + ' was not found'
-            )
-            .withDetails('command', cmd);
+            HttpResponseSender.sendError(req, res, 
+                new BadRequestException(
+                    correlationId,
+                    'NO_ACTION',
+                    'Action ' + cmd + ' was not found'
+                ).withDetails('command', cmd)
+            );
+            return;
         }
         
         return await action(req, res);

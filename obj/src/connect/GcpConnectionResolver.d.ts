@@ -73,7 +73,7 @@ export declare class GcpConnectionResolver implements IConfigurable, IReferencea
      *
      * @param correlationId             (optional) transaction id to trace execution through call chain.
      *
-     * @return {GcpConnectionParams} 	callback function that receives GcpConnectionParams value or error.
+     * @return {GcpConnectionParams} 	GcpConnectionParams value or error.
      *
      * @see [[https://pip-services3-nodex.github.io/pip-services3-components-nodex/interfaces/connect.idiscovery.html IDiscovery]] (in the Pip.Services components package)
      */

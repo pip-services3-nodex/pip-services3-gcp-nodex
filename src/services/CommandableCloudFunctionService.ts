@@ -35,7 +35,7 @@ import { HttpResponseSender } from 'pip-services3-rpc-nodex';
  * 
  *     class MyCommandableCloudFunctionService extends CommandableCloudFunctionService {
  *        public constructor() {
- *           base();
+ *           base("mydata");
  *           this._dependencyResolver.put(
  *               "controller",
  *               new Descriptor("mygroup","controller","*","*","1.0")
@@ -95,11 +95,10 @@ export abstract class CommandableCloudFunctionService extends CloudFunctionServi
                 try {
                     const result = await command.execute(correlationId, args);
                     HttpResponseSender.sendResult(req, res, result);
+                    timing.endTiming()
                 } catch (ex) {
                     timing.endFailure(ex);
                     HttpResponseSender.sendError(req, res, ex);
-                } finally {
-                    timing.endTiming();
                 }
             });
         }

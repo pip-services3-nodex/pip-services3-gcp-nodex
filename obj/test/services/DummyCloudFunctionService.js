@@ -27,10 +27,20 @@ class DummyCloudFunctionService extends CloudFunctionService_1.CloudFunctionServ
             'Content-Type': 'application/json'
         };
         this._dependencyResolver.put('controller', new pip_services3_commons_nodex_1.Descriptor('pip-services-dummies', 'controller', 'default', '*', '*'));
+        this.numberOfCalls = 0;
     }
     setReferences(references) {
         super.setReferences(references);
         this._controller = this._dependencyResolver.getOneRequired('controller');
+    }
+    incrementNumberOfCalls(req, res, next) {
+        this.numberOfCalls++;
+        next(req, res);
+    }
+    getNumberOfCalls(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            pip_services3_rpc_nodex_1.HttpResponseSender.sendResult(req, res, this.numberOfCalls.toString());
+        });
     }
     getPageByFilter(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -78,6 +88,8 @@ class DummyCloudFunctionService extends CloudFunctionService_1.CloudFunctionServ
         });
     }
     register() {
+        this.registerInterceptor("dummies\\..+", this.incrementNumberOfCalls);
+        this.registerAction("number_of_calls", null, this.getNumberOfCalls);
         this.registerAction('get_dummies', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty('body', new pip_services3_commons_nodex_4.ObjectSchema(true)
             .withOptionalProperty("filter", new pip_services3_commons_nodex_6.FilterParamsSchema())

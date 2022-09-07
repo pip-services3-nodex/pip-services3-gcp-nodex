@@ -263,8 +263,17 @@ class CloudFunctionService {
      *
      * @param action an action function that is called when middleware is invoked.
      */
-    registerInterceptor(action) {
-        this._interceptors.push(action);
+    registerInterceptor(cmd, action) {
+        let self = this;
+        let interceptorWrapper = (req, res, next) => {
+            let currCmd = this.getCommand(req);
+            let match = (currCmd.match(cmd) || []).length > 0;
+            if (cmd != null && cmd != "" && !match)
+                next.call(self, req, res);
+            else
+                action.call(self, req, res, next);
+        };
+        this._interceptors.push(interceptorWrapper);
     }
     /**
      * Returns correlationId from Google Function request.

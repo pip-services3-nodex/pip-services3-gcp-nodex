@@ -76,8 +76,7 @@
 					Each command is exposed as action determined by &quot;cmd&quot; parameter.</p>
 					<h3 id="configuration-parameters">Configuration parameters</h3>
 					<ul>
-						<li><p>connections:</p>
-							<ul>
+						<li>connections:<ul>
 								<li>uri:           full connection uri with specific app and function name</li>
 								<li>protocol:      connection protocol</li>
 								<li>project_id:    is your Google Cloud Platform project ID</li>
@@ -86,8 +85,13 @@
 								<li>org_id:        organization name</li>
 							</ul>
 						</li>
-						<li><p>credentials:</p>
-							<ul>
+						<li>options:<ul>
+								<li>retries:               number of retries (default: 3)</li>
+								<li>connect_timeout:       connection timeout in milliseconds (default: 10 sec)</li>
+								<li>timeout:               invocation timeout in milliseconds (default: 10 sec)</li>
+							</ul>
+						</li>
+						<li>credentials:<ul>
 								<li>account: the service account name</li>
 								<li>auth_token:    Google-generated ID token or null if using custom auth (IAM)</li>
 							</ul>
@@ -205,7 +209,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CommandableCloudFunctionClient.ts:58</li>
+									<li>Defined in clients/CommandableCloudFunctionClient.ts:61</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -238,7 +242,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_client">_client</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:83</li>
+							<li>Defined in clients/CloudFunctionClient.ts:96</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -254,7 +258,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_connecttimeout">_connectTimeout</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:97</li>
+							<li>Defined in clients/CloudFunctionClient.ts:110</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -270,7 +274,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_connection">_connection</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:87</li>
+							<li>Defined in clients/CloudFunctionClient.ts:100</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -286,7 +290,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_connectionresolver">_connectionResolver</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:114</li>
+							<li>Defined in clients/CloudFunctionClient.ts:127</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -302,7 +306,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_counters">_counters</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:122</li>
+							<li>Defined in clients/CloudFunctionClient.ts:135</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -318,7 +322,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_dependencyresolver">_dependencyResolver</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:110</li>
+							<li>Defined in clients/CloudFunctionClient.ts:123</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -334,7 +338,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_headers">_headers</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:93</li>
+							<li>Defined in clients/CloudFunctionClient.ts:106</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -350,7 +354,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_logger">_logger</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:118</li>
+							<li>Defined in clients/CloudFunctionClient.ts:131</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -366,7 +370,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_retries">_retries</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:89</li>
+							<li>Defined in clients/CloudFunctionClient.ts:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -377,7 +381,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_timeout">_timeout</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:101</li>
+							<li>Defined in clients/CloudFunctionClient.ts:114</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -393,7 +397,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_tracer">_tracer</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:126</li>
+							<li>Defined in clients/CloudFunctionClient.ts:139</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -409,7 +413,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#_uri">_uri</a></p>
 						<ul>
-							<li>Defined in clients/CloudFunctionClient.ts:105</li>
+							<li>Defined in clients/CloudFunctionClient.ts:118</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -432,7 +436,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#call">call</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:288</li>
+									<li>Defined in clients/CloudFunctionClient.ts:305</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -482,7 +486,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in clients/CommandableCloudFunctionClient.ts:80</li>
+									<li>Defined in clients/CommandableCloudFunctionClient.ts:83</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -535,7 +539,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#close">close</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:226</li>
+									<li>Defined in clients/CloudFunctionClient.ts:243</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -567,7 +571,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:133</li>
+									<li>Defined in clients/CloudFunctionClient.ts:146</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -599,7 +603,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#instrument">instrument</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:160</li>
+									<li>Defined in clients/CloudFunctionClient.ts:177</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -639,7 +643,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#invoke">invoke</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:251</li>
+									<li>Defined in clients/CloudFunctionClient.ts:268</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -690,7 +694,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#isopen">isOpen</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:175</li>
+									<li>Defined in clients/CloudFunctionClient.ts:192</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -714,7 +718,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#open">open</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:185</li>
+									<li>Defined in clients/CloudFunctionClient.ts:202</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -746,7 +750,7 @@ client.configure(<span class="hljs-type">ConfigParams</span>.fromTuples(
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.cloudfunctionclient.html">CloudFunctionClient</a>.<a href="clients.cloudfunctionclient.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in clients/CloudFunctionClient.ts:145</li>
+									<li>Defined in clients/CloudFunctionClient.ts:162</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

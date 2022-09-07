@@ -6,10 +6,6 @@ import { CloudFunctionClient } from '../../src/clients/CloudFunctionClient';
 import { IDummyClient } from '../IDummyClient';
 import { Dummy } from '../Dummy';
 
-export interface DummyCloudFunctionClientResponse {
-    body?: any
-}
-
 export class DummyCloudFunctionClient extends CloudFunctionClient implements IDummyClient {
 
     public constructor() { 
@@ -17,16 +13,16 @@ export class DummyCloudFunctionClient extends CloudFunctionClient implements IDu
     }
 
     public async getDummies(correlationId: string, filter: FilterParams, paging: PagingParams): Promise<DataPage<Dummy>> {
-        const response = await this.call<DummyCloudFunctionClientResponse>('dummies.get_dummies', correlationId, {
+        const response = await this.call<DataPage<Dummy>>('dummies.get_dummies', correlationId, {
             filter: filter,
             paging: paging
         });
 
-        return response as DataPage<Dummy>;
+        return response;
     }
 
     public async getDummyById(correlationId: string, dummyId: string): Promise<Dummy> {
-        const response = await this.call<DummyCloudFunctionClientResponse>('dummies.get_dummy_by_id', correlationId, {
+        const response = await this.call<Dummy>('dummies.get_dummy_by_id', correlationId, {
                 dummy_id: dummyId
         });
 
@@ -34,31 +30,31 @@ export class DummyCloudFunctionClient extends CloudFunctionClient implements IDu
             return null;
         }
 
-        return response as Dummy;
+        return response;
     }
 
     public async createDummy(correlationId: string, dummy: any): Promise<Dummy> {
-        const response = await this.call<DummyCloudFunctionClientResponse>('dummies.create_dummy', correlationId, {
+        const response = await this.call<Dummy>('dummies.create_dummy', correlationId, {
                 dummy: dummy
         });
 
-        return response as Dummy;
+        return response;
     }
 
     public async updateDummy(correlationId: string, dummy: any): Promise<Dummy> {
-        const response = await this.call<DummyCloudFunctionClientResponse>('dummies.update_dummy', correlationId, {
+        const response = await this.call<Dummy>('dummies.update_dummy', correlationId, {
                 dummy: dummy
         });
 
-        return response as Dummy;
+        return response;
     }
 
     public async deleteDummy(correlationId: string, dummyId: string): Promise<Dummy> {
-        const response = await this.call<DummyCloudFunctionClientResponse>('dummies.delete_dummy', correlationId, {
+        const response = await this.call<Dummy>('dummies.delete_dummy', correlationId, {
                 dummy_id: dummyId
         });
 
-        return response as Dummy;
+        return response;
     }
 
 }

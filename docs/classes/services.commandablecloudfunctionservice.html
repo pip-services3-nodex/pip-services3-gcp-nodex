@@ -96,7 +96,7 @@
 							<h3 id="example">Example</h3>
 							<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCommandableCloudFunctionService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CommandableCloudFunctionService</span> </span>{
    public constructor() {
-      base();
+      base(<span class="hljs-string">"mydata"</span>);
       <span class="hljs-keyword">this</span>._dependencyResolver.put(
           <span class="hljs-string">"controller"</span>,
           <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-string">"mygroup"</span>,<span class="hljs-string">"controller"</span>,<span class="hljs-string">"*"</span>,<span class="hljs-string">"*"</span>,<span class="hljs-string">"1.0"</span>)
@@ -167,7 +167,7 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.commandablecloudfunctionservice.html#getactions" class="tsd-kind-icon">get<wbr>Actions</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.commandablecloudfunctionservice.html#getcommand" class="tsd-kind-icon">get<wbr>Command</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.commandablecloudfunctionservice.html#getcorrelationid" class="tsd-kind-icon">get<wbr>Correlation<wbr>Id</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="services.commandablecloudfunctionservice.html#getParameters" class="tsd-kind-icon">get<wbr>Parametrs</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="services.commandablecloudfunctionservice.html#getparameters" class="tsd-kind-icon">get<wbr>Parameters</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.commandablecloudfunctionservice.html#instrument" class="tsd-kind-icon">instrument</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.commandablecloudfunctionservice.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.commandablecloudfunctionservice.html#open" class="tsd-kind-icon">open</a></li>
@@ -546,7 +546,7 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.cloudfunctionservice.html">CloudFunctionService</a>.<a href="services.cloudfunctionservice.html#getcommand">getCommand</a></p>
 								<ul>
-									<li>Defined in services/CloudFunctionService.ts:324</li>
+									<li>Defined in services/CloudFunctionService.ts:332</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -580,7 +580,7 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.cloudfunctionservice.html">CloudFunctionService</a>.<a href="services.cloudfunctionservice.html#getcorrelationid">getCorrelationId</a></p>
 								<ul>
-									<li>Defined in services/CloudFunctionService.ts:314</li>
+									<li>Defined in services/CloudFunctionService.ts:322</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -604,10 +604,10 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-					<a name="getParameters" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Parametrs</h3>
+					<a name="getparameters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Parameters</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Parametrs<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parameters<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -940,7 +940,7 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 					<a name="registerinterceptor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> register<wbr>Interceptor</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">register<wbr>Interceptor<span class="tsd-signature-symbol">(</span>action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Interceptor<span class="tsd-signature-symbol">(</span>cmd<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -958,6 +958,9 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>cmd: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
 									<h5>action: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>an action function that is called when middleware is invoked.</p>
@@ -965,7 +968,7 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Request</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Request</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
@@ -982,27 +985,18 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 															<ul class="tsd-parameters">
 																<li class="tsd-parameter-siganture">
 																	<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-																		<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Request</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+																		<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 																	</ul>
 																	<ul class="tsd-descriptions">
 																		<li class="tsd-description">
-																			<h4 class="tsd-parameters-title">Parameters</h4>
-																			<ul class="tsd-parameters">
-																				<li>
-																					<h5>req: <span class="tsd-signature-type">Request</span></h5>
-																				</li>
-																				<li>
-																					<h5>res: <span class="tsd-signature-type">Response</span></h5>
-																				</li>
-																			</ul>
-																			<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+																			<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 																		</li>
 																	</ul>
 																</li>
 															</ul>
 														</li>
 													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 												</li>
 											</ul>
 										</li>
@@ -1123,7 +1117,7 @@ console.log(<span class="hljs-string">"The Google Function service is running"</
 								<a href="services.commandablecloudfunctionservice.html#getcorrelationid" class="tsd-kind-icon">get<wbr>Correlation<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="services.commandablecloudfunctionservice.html#getParameters" class="tsd-kind-icon">get<wbr>Parametrs</a>
+								<a href="services.commandablecloudfunctionservice.html#getparameters" class="tsd-kind-icon">get<wbr>Parameters</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="services.commandablecloudfunctionservice.html#instrument" class="tsd-kind-icon">instrument</a>

@@ -271,12 +271,13 @@ class CloudFunction extends pip_services3_container_nodex_1.Container {
             let cmd = this.getCommand(req);
             let correlationId = this.getCorrelationId(req);
             if (cmd == null) {
-                throw new pip_services3_commons_nodex_1.BadRequestException(correlationId, 'NO_COMMAND', 'Cmd parameter is missing');
+                pip_services3_rpc_nodex_1.HttpResponseSender.sendError(req, res, new pip_services3_commons_nodex_1.BadRequestException(correlationId, 'NO_COMMAND', 'Cmd parameter is missing'));
+                return;
             }
             const action = this._actions[cmd];
             if (action == null) {
-                throw new pip_services3_commons_nodex_1.BadRequestException(correlationId, 'NO_ACTION', 'Action ' + cmd + ' was not found')
-                    .withDetails('command', cmd);
+                pip_services3_rpc_nodex_1.HttpResponseSender.sendError(req, res, new pip_services3_commons_nodex_1.BadRequestException(correlationId, 'NO_ACTION', 'Action ' + cmd + ' was not found').withDetails('command', cmd));
+                return;
             }
             return yield action(req, res);
         });
