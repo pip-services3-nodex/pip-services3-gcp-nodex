@@ -227,7 +227,7 @@ export class GcpConnectionParams extends ConfigParams {
         const region = this.getRegion();
         const projectId = this.getProjectId();
 
-        if (uri === null && (projectId == null &&  region == null && functionName === null && protocol === null)) {
+        if (uri == null && (projectId == null ||  region == null || functionName == null || protocol == null)) {
             throw new ConfigException(
                 correlationId,
                 "NO_CONNECTION_URI",

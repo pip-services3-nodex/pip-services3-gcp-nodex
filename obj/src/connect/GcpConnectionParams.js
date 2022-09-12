@@ -209,7 +209,7 @@ class GcpConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
         const functionName = this.getFunction();
         const region = this.getRegion();
         const projectId = this.getProjectId();
-        if (uri === null && (projectId == null && region == null && functionName === null && protocol === null)) {
+        if (uri == null && (projectId == null || region == null || functionName == null || protocol == null)) {
             throw new pip_services3_commons_nodex_3.ConfigException(correlationId, "NO_CONNECTION_URI", "No uri, project_id, region and function is configured in Google function uri");
         }
         if (protocol != null && "http" != protocol && "https" != protocol) {
