@@ -235,7 +235,7 @@ class CloudFunctionClient {
     invoke(cmd, correlationId, args) {
         return __awaiter(this, void 0, void 0, function* () {
             if (cmd == null) {
-                throw new pip_services3_commons_nodex_4.UnknownException(correlationId, 'NO_COMMAND', 'Missing command');
+                throw new pip_services3_commons_nodex_4.UnknownException(correlationId, 'NO_COMMAND', 'Cmd parameter is missing');
             }
             args = Object.assign({}, args);
             args.cmd = cmd;

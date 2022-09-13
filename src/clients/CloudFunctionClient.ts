@@ -257,7 +257,7 @@ export abstract class CloudFunctionClient implements IOpenable, IConfigurable, I
      */
     protected async invoke<T>(cmd: string, correlationId: string, args: any): Promise<T> {
         if (cmd == null) {
-            throw new UnknownException(correlationId, 'NO_COMMAND', 'Missing command');
+            throw new UnknownException(correlationId, 'NO_COMMAND', 'Cmd parameter is missing');
         }
 
         args = Object.assign({}, args);
