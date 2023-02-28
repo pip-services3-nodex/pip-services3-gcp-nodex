@@ -8,7 +8,7 @@ let functionService = new DummyCloudFunction();
 exports.commandableHandler = async (req, res) => {
     let config = ConfigParams.fromTuples(
         'logger.descriptor', 'pip-services:logger:console:default:1.0',
-        'service.descriptor', 'pip-services-dummies:service:commandable-gcp-function:default:1.0'
+        'service.descriptor', 'pip-services-dummies:service:commandable-cloudfunc:default:1.0'
     );
     
     if (!functionService.isOpen()) {
@@ -25,7 +25,7 @@ exports.commandableHandler = async (req, res) => {
 exports.handler = async (req, res) => {
     let config = ConfigParams.fromTuples(
         'logger.descriptor', 'pip-services:logger:console:default:1.0',
-        'service.descriptor', 'pip-services-dummies:service:gcp-function:default:1.0'
+        'service.descriptor', 'pip-services-dummies:service:cloudfunc:default:1.0'
     );
 
     if (!functionService.isOpen()) {

@@ -38,8 +38,8 @@ const CloudFunctionRequestHelper_1 = require("./CloudFunctionRequestHelper");
  *
  * - <code>\*:logger:\*:\*:1.0</code>            (optional) [[https://pip-services3-nodex.github.io/pip-services3-components-nodex/interfaces/log.ilogger.html ILogger]] components to pass log messages
  * - <code>\*:counters:\*:\*:1.0</code>          (optional) [[https://pip-services3-nodex.github.io/pip-services3-components-nodex/interfaces/count.icounters.html ICounters]] components to pass collected measurements
- * - <code>\*:service:gcp-function:\*:1.0</code>       (optional) [[https://pip-services3-nodex.github.io/pip-services3-gcp-nodex/interfaces/services.iCloudFunctionservice.html ICloudFunctionService]] services to handle action requests
- * - <code>\*:service:commandable-gcp-function:\*:1.0</code> (optional) [[https://pip-services3-nodex.github.io/pip-services3-gcp-nodex/interfaces/services.iCloudFunctionservice.html ICloudFunctionService]] services to handle action requests
+ * - <code>\*:service:cloudfunc:\*:1.0</code>       (optional) [[https://pip-services3-nodex.github.io/pip-services3-gcp-nodex/interfaces/services.iCloudFunctionservice.html ICloudFunctionService]] services to handle action requests
+ * - <code>\*:service:commandable-cloudfunc:\*:1.0</code> (optional) [[https://pip-services3-nodex.github.io/pip-services3-gcp-nodex/interfaces/services.iCloudFunctionservice.html ICloudFunctionService]] services to handle action requests
  *
  *
  * ### Example ###
@@ -187,8 +187,8 @@ class CloudFunction extends pip_services3_container_nodex_1.Container {
      */
     registerServices() {
         // Extract regular and commandable Google Function services from references
-        let services = this._references.getOptional(new pip_services3_commons_nodex_4.Descriptor("*", "service", "gcp-function", "*", "*"));
-        let cmdServices = this._references.getOptional(new pip_services3_commons_nodex_4.Descriptor("*", "service", "commandable-gcp-function", "*", "*"));
+        let services = this._references.getOptional(new pip_services3_commons_nodex_4.Descriptor("*", "service", "cloudfunc", "*", "*"));
+        let cmdServices = this._references.getOptional(new pip_services3_commons_nodex_4.Descriptor("*", "service", "commandable-cloudfunc", "*", "*"));
         services.push(...cmdServices);
         // Register actions defined in those services
         for (let service of services) {

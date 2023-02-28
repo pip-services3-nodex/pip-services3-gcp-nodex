@@ -8,8 +8,8 @@ import { DummyCommandableCloudFunctionService } from './services/DummyCommandabl
 export class DummyFactory extends Factory {
 	public static Descriptor = new Descriptor("pip-services-dummies", "factory", "default", "default", "1.0");
 	public static ControllerDescriptor = new Descriptor("pip-services-dummies", "controller", "default", "*", "1.0");
-	public static CloudFunctionServiceDescriptor = new Descriptor("pip-services-dummies", "service", "gcp-function", "*", "1.0");
-	public static CmdCloudFunctionServiceDescriptor = new Descriptor("pip-services-dummies", "service", "commandable-gcp-function", "*", "1.0");
+	public static CloudFunctionServiceDescriptor = new Descriptor("pip-services-dummies", "service", "cloudfunc", "*", "1.0");
+	public static CmdCloudFunctionServiceDescriptor = new Descriptor("pip-services-dummies", "service", "commandable-cloudfunc", "*", "1.0");
 	public constructor() {
 		super();
 		this.registerAsType(DummyFactory.ControllerDescriptor, DummyController);

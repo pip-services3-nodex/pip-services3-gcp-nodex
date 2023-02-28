@@ -17,6 +17,6 @@ class DummyFactory extends pip_services3_components_nodex_1.Factory {
 exports.DummyFactory = DummyFactory;
 DummyFactory.Descriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "factory", "default", "default", "1.0");
 DummyFactory.ControllerDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "controller", "default", "*", "1.0");
-DummyFactory.CloudFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "gcp-function", "*", "1.0");
-DummyFactory.CmdCloudFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "commandable-gcp-function", "*", "1.0");
+DummyFactory.CloudFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "cloudfunc", "*", "1.0");
+DummyFactory.CmdCloudFunctionServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("pip-services-dummies", "service", "commandable-cloudfunc", "*", "1.0");
 //# sourceMappingURL=DummyFactory.js.map
